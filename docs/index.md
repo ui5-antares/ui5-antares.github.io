@@ -38,9 +38,9 @@ The UI5 Antares library is a custom SAPUI5 library comprising useful classes and
 
 ## Core Classes
 
-[ENTRY_CREATE_URL]: ./entry_create
-[ENTRY_UPDATE_URL]: ./entry_update
-[ENTRY_DELETE_URL]: ./entry_delete
+[ENTRY_CREATE_URL]: ./entry_create.md
+[ENTRY_UPDATE_URL]: ./entry_update.md
+[ENTRY_DELETE_URL]: ./entry_delete.md
 [ENTRY_READ_URL]: ./entry_read.md
 [ODATA_CLASSES_URL]: ./odata_classes.md
 [FRAGMENT_CLASS_URL]: ./fragment_class.md
