@@ -1,0 +1,52 @@
+site_name: UI5 Antares
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono    
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: indigo
+      accent: purple
+    - scheme: slate 
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode    
+      primary: indigo
+      accent: lime
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hasanciftci26
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/hasan-%C3%A7ift%C3%A7i-4b3646170
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true        
+
+repo_url: https://github.com/hasanciftci26/ui5-antares
+repo_name: ui5-antares
+
+copyright: >
+  &copy; 2024 <a href="https://github.com/hasanciftci26" target="_blank" rel="noopened">Hasan Ciftci</a>
