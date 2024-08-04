@@ -299,6 +299,10 @@ The **createNewEntry()** method utilizes the [ODataMetaModel][META_MODEL_URL] to
     </tbody>
 </table>
 
+!!! example
+
+    Let's assume you have an EntitySet named **Products** and wish to provide your end-user with the capability to create a new entity via a pop-up screen using the OData V2 service in your custom SAPUI5 application.
+
 === "TypeScript"
 
     ```ts
