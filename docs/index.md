@@ -5,13 +5,13 @@
 [UI5_LICENSE_URL]: https://tools.hana.ondemand.com/developer-license-3_2.txt
 [ANTARES_URL]: #ui5-antares
 
-The UI5 Antares library is a custom SAPUI5 library comprising useful classes and methods, specifically designed to streamline the development process when working with OData V2 services.
+The UI5 Antares is a custom SAPUI5 library comprising useful classes and methods, specifically designed to streamline the development process when working with OData V2 services.
 
 !!! info
 
     UI5 Antares is developed in [TypeScript][TS_URL] and is compatible with both SAPUI5 JavaScript and SAPUI5 TypeScript applications.
 
-!!! warning
+!!! danger "Attention"
 
     This library utilizes the classes and components of the [SAPUI5][SAPUI5_URL] framework without modifying or copying the source code, which is licensed under the [SAP Developer License][UI5_LICENSE_URL]. It is important to carefully review the [SAP Developer License][UI5_LICENSE_URL] terms and conditions, as well as adhere to the restrictions set forth therein when using the [UI5 Antares][ANTARES_URL] library.
 

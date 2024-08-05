@@ -768,25 +768,895 @@ To disable the auto close feature, the **setDisableAutoClose()** method can be u
 
 ## Label Generation
 
+The [Entry Create](#entry-create) class is designed to generate labels for form elements within the auto-generated SmartForm/SimpleForm, as the default setting. The following steps will be followed during the creation of the labels.
+
+!!! note
+    
+    In the event that the metadata labels are not utilized when creating the labels, the Resource Model will take precedence.
+
+### Resource Model (i18n)
+
+[RESOURCE_MODEL_URL]: https://sapui5.hana.ondemand.com/#/api/sap.ui.model.resource.ResourceModel
+
+In the event that the application in question has a [Resource Model][RESOURCE_MODEL_URL] named `i18n` within its **manifest.json** file, the [Entry Create](#entry-create) class will search for the texts associated with each property of the EntityType, operating under the assumption that the **key** of the i18n text is written in the format outlined below.
+
+!!! info
+
+    **Default format of the i18n keys:** antares + [entityPath](#constructor) + propertyName
+
+In this context, `antares` is the default prefix, which can be modified using the [setResourceBundlePrefix()](#resource-bundle-prefix) method. The `entityPath` is derived from the [class constructor](#constructor), while the `propertyName` represents the technical name of an `EntityType` property in the OData V2 metadata.
+
+```json title="manifest.json"
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    ...
+    "i18n": "path/to/i18n.properties"
+  },
+  ...
+  "sap.ui5": {
+    ...
+    "models": {
+      "i18n": {
+          "type": "sap.ui.model.resource.ResourceModel",
+          "settings": {
+              "bundleName": "your.apps.namespace.i18n.i18n"
+          }
+      }      
+    }
+  }
+}
+```
+
+!!! example
+
+    If you have an `EntitySet` named **Products** with the properties shown in the metadata below, your application's `i18n.properties` file will be checked for the following keys.
+
+```properties title="i18n.properties"
+antaresProductsID=Label of the ID property
+antaresProductsname=Label of the name property
+antaresProductsdescription=Label of the description property
+...
+```
+
+```xml title="$metadata.xml"
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="OnlineShopping" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Products" EntityType="OnlineShopping.Product"/>
+            </EntityContainer>
+            <EntityType Name="Product">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" MaxLength="50"/>
+                <Property Name="description" Type="Edm.String" MaxLength="255"/>
+                <Property Name="brand" Type="Edm.String" MaxLength="50"/>
+                <Property Name="price" Type="Edm.Decimal" Precision="13" Scale="2" Nullable="false"/>
+                <Property Name="currency" Type="Edm.String" MaxLength="5" Nullable="false"/>
+                <Property Name="quantityInStock" Type="Edm.Int32"/>
+                <Property Name="categoryID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="supplierID" Type="Edm.Guid" Nullable="false"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
+```
+
+!!! info
+
+    In the event that the [Resource Model](#resource-model-i18n) is unavailable or the text is not present in the `i18n.properties` file, the [Label Generation From The Technical Names](#label-generation-from-the-technical-names) process will be initiated.
+
+### Label Generation From The Technical Names
+
+In the event that a label cannot be generated from the [Resource Model](#resource-model-i18n), the [Entry Create](#entry-create) class attempts to parse the technical property names of the `EntityType` into **human-readable** words.
+
+The default assumption is that the naming convention for `EntityType` properties is **camelCase**. However, if a different naming convention was used when creating these properties, [setNamingStrategy()](#naming-strategy) can be used to change the default naming convention.
+
+!!! example
+
+    The following examples illustrate the breakdown of property names into **human-readable** words in various naming strategies.
+
+=== "camelCase"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Technical Name</th>
+          <th>Generated Label</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>productID</td>
+          <td>Product ID</td>
+        </tr>
+        <tr>
+          <td>firstName</td>
+          <td>First Name</td>
+        </tr>
+        <tr>
+          <td>lastName</td>
+          <td>Last Name</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "PascalCase"
+
+    **Note:** Uid, Id and Url words are accepted as special words and converted to upper case after splitting.
+
+    <table>
+      <thead>
+        <tr>
+          <th>Technical Name</th>
+          <th>Generated Label</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ProductId</td>
+          <td>Product ID</td>
+        </tr>
+        <tr>
+          <td>FirstName</td>
+          <td>First Name</td>
+        </tr>
+        <tr>
+          <td>LastName</td>
+          <td>Last Name</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "kebab-case"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Technical Name</th>
+          <th>Generated Label</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>product-id</td>
+          <td>Product Id</td>
+        </tr>
+        <tr>
+          <td>first-name</td>
+          <td>First Name</td>
+        </tr>
+        <tr>
+          <td>last-name</td>
+          <td>Last Name</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "CONSTANT_CASE"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Technical Name</th>
+          <th>Generated Label</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PRODUCT_ID</td>
+          <td>Product Id</td>
+        </tr>
+        <tr>
+          <td>FIRST_NAME</td>
+          <td>First Name</td>
+        </tr>
+        <tr>
+          <td>LAST_NAME</td>
+          <td>Last Name</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "snake_case"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Technical Name</th>
+          <th>Generated Label</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>product_id</td>
+          <td>Product Id</td>
+        </tr>
+        <tr>
+          <td>first_name</td>
+          <td>First Name</td>
+        </tr>
+        <tr>
+          <td>last_name</td>
+          <td>Last Name</td>
+        </tr>
+      </tbody>
+    </table>
+
 ### Use Metadata Labels
+
+If you have a **com.sap.vocabularies.Common.v1.Label** annotation or a **sap:label** extension for your `EntityType` properties in the OData V2 metadata, you can utilize them as labels for the auto-generated form elements.
+
+!!! warning
+
+    If the value is set to **true** using the setter method and the labels are not found in the metadata, the [Entry Create](#entry-create) class will generate the labels in accordance with the instructions set out in the [Label Generation](#label-generation) section.
+
+=== "Setter (setUseMetadataLabels)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>useMetadataLabels</td>
+          <td><code>boolean</code></td>
+          <td>Yes</td>
+          <td>If the value is <strong>true</strong>, the OData V2 metadata labels will be used when creating labels for the auto-generated form elements</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getUseMetadataLabels)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>boolean</code></td>
+          <td>Returns the value that was set using <strong>setUseMetadataLabels()</strong> method. Default value is <strong>false</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+**Example**
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // The OData V2 metadata labels will be used for the form elements.
+        entry.setUseMetadataLabels(true);
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // The OData V2 metadata labels will be used for the form elements.
+              entry.setUseMetadataLabels(true);
+
+              entry.createNewEntry(); 
+            }
+          });
+
+        });
+    ```
+
+## Resource Bundle Prefix
+
+To modify the default resource bundle prefix utilized in the text lookup process outlined in the [Resource Model (i18n)](#resource-model-i18n), the **setResourceBundlePrefix()** method can be utilized.
+
+!!! tip 
+
+    If you do not wish to utilize a prefix, it is recommended that you pass an empty string, represented by `""`, as a parameter to the **setResourceBundlePrefix()** method.
+
+=== "Setter (setResourceBundlePrefix)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>prefix</td>
+          <td><code>string</code></td>
+          <td>Yes</td>
+          <td>The prefix that is used for text lookup in the <strong>i18n</strong> file of the application</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getResourceBundlePrefix)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>string</code></td>
+          <td>Returns the value that was set using <strong>setResourceBundlePrefix()</strong> method. Default value is <strong>antares</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+    Let us assume that you have created an `EntitySet` named **Products**, which contains the following properties: `productID` and `productName`. If you have set the resource bundle prefix to `myPrefix`, the [Entry Create](#entry-create) class will search for the following texts in the application's **i18n** file:
+
+```properties title="i18n.properties"
+myPrefixProductsproductID=Label of the productID property
+myPrefixProductsproductName=Label of the productName property
+```
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // New i18n text lookup format will be => myPrefix + entityPath + propertyName
+        entry.setResourceBundlePrefix("myPrefix");
+
+        entry.createNewEntry(); 
+      }
+
+      public async onCreateCategory() {
+        const entry = new EntryCreateCL(this, "Categories");
+
+        // New i18n text lookup format will be => entityPath + propertyName
+        entry.setResourceBundlePrefix("");
+
+        entry.createNewEntry();
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // New i18n text lookup format will be => myPrefix + entityPath + propertyName
+              entry.setResourceBundlePrefix("myPrefix");
+
+              entry.createNewEntry(); 
+            },
+
+            onCreateCategory: async function () {
+              const entry = new EntryCreateCL(this, "Categories");
+
+              // New i18n text lookup format will be => entityPath + propertyName
+              entry.setResourceBundlePrefix("");
+
+              entry.createNewEntry();          
+            }
+          });
+
+        });
+    ```
+
+## Naming Strategy
+
+To modify the default naming strategy employed during label generation, as outlined in the [Label Generation From The Technical Names](#label-generation-from-the-technical-names) documentation, the **setNamingStrategy()** method can be utilized.
+
+=== "Setter (setNamingStrategy)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>strategy</td>
+          <td><a href="#namingstrategies-enum">NamingStrategies</a></td>
+          <td>Yes</td>
+          <td>The naming strategy that is used for label generation</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getNamingStrategy)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#namingstrategies-enum">NamingStrategies</a></td>
+          <td>Returns the value that was set using <strong>setNamingStrategy()</strong> method. Default value is <strong>CAMEL_CASE</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+    Let us consider the following scenario: You have an `EntitySet` named **Products** with the properties `product_id` and `product_name`. You have opted not to utilize the labels from the metadata or the i18n file. Instead, you would like the library to generate the labels. To achieve this, you can set the naming strategy as follows:
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    import { NamingStrategies } from "ui5/antares/types/entry/enums"; // Import the enum
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the naming strategy to snake_case
+        entry.setNamingStrategy(NamingStrategies.SNAKE_CASE);
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+        "ui5/antares/types/entry/enums" // Import the enums
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL, EntryEnums) {
+          "use strict";
+
+          // Destructure the object to retrieve the NamingStrategies enum
+          const { NamingStrategies } = EntryEnums;
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the naming strategy to snake_case
+              entry.setNamingStrategy(NamingStrategies.SNAKE_CASE);
+
+              entry.createNewEntry(); 
+            }
+          });
+
+        });
+    ```
+
+### NamingStrategies Enum
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NamingStrategies.CAMEL_CASE</td>
+      <td><code>EntityType</code> properties use <strong>camelCase</strong> naming convention</td>
+    </tr>
+    <tr>
+      <td>NamingStrategies.PASCAL_CASE</td>
+      <td><code>EntityType</code> properties use <strong>PascalCase</strong> naming convention</td>
+    </tr>
+    <tr>
+      <td>NamingStrategies.KEBAB_CASE</td>
+      <td><code>EntityType</code> properties use <strong>kebab-case</strong> naming convention</td>
+    </tr>
+    <tr>
+      <td>NamingStrategies.CONSTANT_CASE</td>
+      <td><code>EntityType</code> properties use <strong>CONSTANT_CASE</strong> naming convention</td>
+    </tr>
+    <tr>
+      <td>NamingStrategies.SNAKE_CASE</td>
+      <td><code>EntityType</code> properties use <strong>snake_case</strong> naming convention</td>
+    </tr>
+  </tbody>
+</table>
+
+## Form Type
+
+[INPUT_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.Input
+[DATEPICKER_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.DatePicker
+[DATETIMEPICKER_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.DateTimePicker
+[CHECKBOX_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.CheckBox
+[VALUELIST_ANNOTATION_URL]: https://sap.github.io/odata-vocabularies/vocabularies/Common.html#ValueListType
+
+The [createNewEntry()](#create-new-entry) method automatically generates a [sap.ui.comp.smartform.SmartForm][SMARTFORM_URL] with [sap.ui.comp.smartfield.SmartField][SMARTFIELD_URL] content. This form type offers several advantages.
+
+1) The form fields are rendered as Input, DatePicker, DateTimePicker, ComboBox, CheckBox, and so on, based on the **EDM type** of the `EntityType` property.
+
+2) When the `EntityType` property is annotated with [com.sap.vocabularies.Common.v1.ValueList][VALUELIST_ANNOTATION_URL], the Value Help List is automatically added to the smart fields.
+
+The UI5 Antares is capable of creating a [sap.ui.layout.form.SimpleForm][SIMPLEFORM_URL] with [sap.m.Input][INPUT_URL], [sap.m.DatePicker][DATEPICKER_URL], [sap.m.DateTimePicker][DATETIMEPICKER_URL], and [sap.m.CheckBox][CHECKBOX_URL] content based on the **EDM types**.
+
+!!! danger "Attention"
+
+    The [Value Help](#value-help) feature is only available when the form type is set to **SIMPLE**.
+
+**Rendered Controls for SIMPLE Form Type**
+
+<table>
+  <thead>
+    <tr>
+      <th>EDM Type</th>
+      <th>Control</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Boolean</code></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.CheckBox" target="_blank">sap.m.CheckBox</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>DateTime</code></td>
+      <td>
+        <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.DatePicker" target="_blank">sap.m.DatePicker</a> or 
+        <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.DateTimePicker" target="_blank">sap.m.DateTimePicker</a>
+      </td>
+      <td>If the property has <strong>sap:display-format="Date"</strong> extension, it is rendered as 
+        <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.DatePicker" target="_blank">sap.m.DatePicker</a>, 
+        otherwise as <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.DateTimePicker" target="_blank">sap.m.DateTimePicker</a>
+      </td>
+    </tr>
+    <tr>
+      <td><code>DateTimeOffset</code></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.DateTimePicker" target="_blank">sap.m.DateTimePicker</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>Others</code></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Input" target="_blank">sap.m.Input</a></td>
+      <td>If the EDM type of the property is <strong>Edm.Decimal</strong>, precision and scale constraints are added into the input</td>
+    </tr>
+  </tbody>
+</table>
+
+To modify the default form type, the setFormType() method can be utilized.
+
+=== "Setter (setFormType)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>formType</td>
+          <td><a href="#formtypes-enum">FormTypes</a></td>
+          <td>Yes</td>
+          <td>The form type that is generated</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getFormType)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#formtypes-enum">FormTypes</a></td>
+          <td>Returns the value that was set using <strong>setFormType()</strong> method. Default value is <strong>SMART</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+    If you have an `EntitySet` named **Products** and wish to create a simple form within the dialog, you can set the form type as follows.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    import { FormTypes } from "ui5/antares/types/entry/enums"; // Import the enum
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the form type to SIMPLE
+        entry.setFormType(FormTypes.SIMPLE);
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+        "ui5/antares/types/entry/enums" // Import the enums
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL, EntryEnums) {
+          "use strict";
+
+          // Destructure the object to retrieve the FormTypes enum
+          const { FormTypes } = EntryEnums;
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the form type to SIMPLE
+              entry.setFormType(FormTypes.SIMPLE);
+
+              entry.createNewEntry(); 
+            }
+          });
+
+        });
+    ```
+
+### FormTypes Enum
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FormTypes.SMART</td>
+      <td>SmartForm with SmartField content is generated</td>
+    </tr>
+    <tr>
+      <td>FormTypes.SIMPLE</td>
+      <td>SimpleForm with Input, DatePicker, DateTimePicker, CheckBox content is generated</td>
+    </tr>
+  </tbody>
+</table>
+
+## Form Title
+
+The generated form's title is automatically generated by combining the words **Create New** with the `entityPath` defined in the [constructor](#constructor). For example, if the `entityPath` is set to **Products**, the title will be **Create New Products**.
+
+To modify the default form title, please utilize the **setFormTitle()** method.
+
+=== "Setter (setFormTitle)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>title</td>
+          <td><code>string</code></td>
+          <td>Yes</td>
+          <td>The generated form's title</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getFormTitle)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>string</code></td>
+          <td>Returns the value that was set using <strong>setFormTitle()</strong> method. Default value is <strong>Create new ${entityPath}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+    Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the form title
+        entry.setFormTitle("My Form Title");
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the form title
+              entry.setFormTitle("My Form Title");
+
+              entry.createNewEntry(); 
+            }
+          });
+
+        });
+    ```
+
+![Form Title](./images/create_entry/form_title.png)
 
 ## Value Help
 
 ## Validation Logic
 
 ## Properties with Edm.Guid Type
-
-## Naming Strategy
-
-### NamingStrategies Enum
-
-## Form Type
-
-### FormTypes Enum
-
-## Resource Bundle Prefix
-
-## Form Title
 
 ## Begin Button Text
 
