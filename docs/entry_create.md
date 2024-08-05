@@ -2898,12 +2898,968 @@ To modify the default visibility behavior of the properties with `Edm.Guid` type
 	  </tbody>
 	</table>
 
-## Value Help
+## Form Property Order
 
-## Validation Logic
+The auto-generated form elements are displayed in accordance with the order set forth in the OData V2 metadata.
+
+!!! note
+
+    Please be advised that the **key** properties always come **first** on the auto-generated form. This behavior is not open to modification.
+
+The order of the **non-key** properties can be modified using the **setPropertyOrder()** method.
+
+=== "Setter (setPropertyOrder)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>order</td>
+          <td><code>string[]</code></td>
+          <td>Yes</td>
+          <td>The order of the <strong>non-key</strong> properties that will be placed into the auto-generated form will be in the same order as this parameter</td>
+        </tr>
+        <tr>
+          <td>useAllProperties?</td>
+          <td><code>boolean</code></td>
+          <td>No</td>
+          <td>If the value is set to <strong>false</strong>, only the <strong>key</strong> properties and the properties specified in the <strong>order</strong> parameter will be visible to the end user</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getPropertyOrder)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>string[]</code></td>
+          <td>Returns the value that was set using <strong>setPropertyOrder()</strong> method. Default value is <strong>[]</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the property order and bring all the properties
+        entry.setPropertyOrder(["categoryID", "supplierID", "price", "currency", "name"]);
+
+        entry.createNewEntry(); 
+      }
+
+      public async onCreateCustomer() {
+        const entry = new EntryCreateCL(this, "Customers");
+
+        // Set the property order and exclude the other properties
+        entry.setPropertyOrder(["country", "name"], false);
+
+        entry.createNewEntry();     
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the property order and bring all the properties
+              entry.setPropertyOrder(["categoryID", "supplierID", "price", "currency", "name"]);
+
+              entry.createNewEntry(); 
+            },
+
+            onCreateCustomer: async function () {
+              const entry = new EntryCreateCL(this, "Customers");
+
+              // Set the property order and exclude the other properties
+              entry.setPropertyOrder(["country", "name"], false);
+
+              entry.createNewEntry();     
+            }
+          });
+
+        });
+    ```
+
+<table>
+  <thead>
+    <tr>
+      <th>Before</th>
+      <th>After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/create_entry/before_property_order.png" alt="Before Property Order"></td>
+      <td><img src="../images/create_entry/after_property_order.png?raw=true" alt="After Property Order"></td>
+    </tr>
+  </tbody>
+</table>
+
+## Excluded Properties
+
+By default, all `EntityType` properties of the `EntitySet` specified in the [class constructor](#constructor) are accessible to the end user.
+
+To exclude properties from the auto-generated form, please utilize the **setExcludedProperties()** method. Please note that it is still possible to set initial values for excluded properties through the [createNewEntry()](#create-new-entry) method's parameter.
+
+!!! danger "Attention"
+
+    It is not possible to exclude any of the **key** properties.
+
+=== "Setter (setExcludedProperties)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>properties</td>
+          <td><code>string[]</code></td>
+          <td>Yes</td>
+          <td>The properties that will be excluded from the auto-generated form</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getExcludedProperties)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>string[]</code></td>
+          <td>Returns the value that was set using <strong>setExcludedProperties()</strong> method. Default value is <strong>[]</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the excluded properties
+        entry.setExcludedProperties(["categoryID", "supplierID"]);
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the excluded properties
+              entry.setExcludedProperties(["categoryID", "supplierID"]);
+
+              entry.createNewEntry(); 
+            }
+          });
+
+        });
+    ```
+
+<table>
+  <thead>
+    <tr>
+      <th>Before</th>
+      <th>After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/create_entry/before_excluded_properties.png?raw=true" alt="Before Excluded Properties" style="max-width: 100%; height: auto;"></td>
+      <td><img src="../images/create_entry/after_excluded_properties.png?raw=true" alt="After Excluded Properties" style="max-width: 100%; height: auto;"></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Mandatory Properties
 
+The [Entry Create](#entry-create) class includes a built-in validation mechanism that checks the mandatory properties and applies the relevant [Validation Logic](#validation-logic) before submitting the transient entity.
+
+!!! info
+
+    The default setting marks all **key** properties and properties with the `Nullable=false` attribute as mandatory.
+
+In order to include properties in the mandatory check mechanism, the **setMandatoryProperties()** method can be utilized.
+
+=== "Setter (setMandatoryProperties)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>properties</td>
+          <td><code>string[]</code></td>
+          <td>Yes</td>
+          <td>The properties that will be included into the mandatory check mechanism</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getMandatoryProperties)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>string[]</code></td>
+          <td>Returns the value that was set using <strong>setMandatoryProperties()</strong> method. Default value is <strong>[]</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the mandatory properties
+        entry.setMandatoryProperties(["name", "description"]);
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the mandatory properties
+              entry.setMandatoryProperties(["name", "description"]);
+
+              entry.createNewEntry(); 
+            }
+          });
+
+        });
+    ```
+
+<table>
+  <thead>
+    <tr>
+      <th>Before</th>
+      <th>After</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/create_entry/before_mandatory_properties.png?raw=true" alt="Before Mandatory Properties" style="max-width: 100%; height: auto;"></td>
+      <td><img src="../images/create_entry/after_mandatory_properties.png?raw=true" alt="After Mandatory Properties" style="max-width: 100%; height: auto;"></td>
+    </tr>
+  </tbody>
+</table>
+
 ### Mandatory Error Message
+
+[MESSAGEBOX_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.MessageBox
+
+In the event that a property fails the mandatory check mechanism, the value state of the UI control (SmartField, Input, etc.) is set to `Error`, and a default message is displayed in the [sap.m.MessageBox.error][MESSAGEBOX_URL] to the end user.
+
+!!! info
+
+    **Default Message:** Please fill in all required fields.
+
+To customize the default error message, please utilize the **setMandatoryErrorMessage()** method.
+
+=== "Setter (setMandatoryErrorMessage)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>message</td>
+          <td><code>string</code></td>
+          <td>Yes</td>
+          <td>The displayed message when the mandatory check mechanism fails</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getMandatoryErrorMessage)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>string</code></td>
+          <td>Returns the value that was set using <strong>setMandatoryErrorMessage()</strong> method. Default value is <strong>Please fill in all required fields.</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the mandatory error message
+        entry.setMandatoryErrorMessage("My Mandatory Error Message");
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the mandatory error message
+              entry.setMandatoryErrorMessage("My Mandatory Error Message");
+
+              entry.createNewEntry(); 
+            }
+          });
+
+        });
+    ```
+
+![Mandatory Error Message](./images/create_entry/mandatory_error_message.png)
+
+## Readonly Properties
+
+In the event that the property type is `Edm.Guid` and the library generates a random UUID for it, the end user will be unable to edit it.
+
+!!! tip
+
+    For additional details regarding properties with an `Edm.Guid` type, please refer to the [Properties with Edm.Guid Type](#properties-with-edmguid-type) section.
+
+To prevent end users from editing certain properties, the **setReadonlyProperties()** method can be utilized.
+
+!!! info
+
+    It is possible to set the initial values for readonly properties.
+
+=== "Setter (setReadonlyProperties)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Mandatory</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>properties</td>
+          <td><code>string[]</code></td>
+          <td>Yes</td>
+          <td>The read-only properties</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Getter (getReadonlyProperties)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>string[]</code></td>
+          <td>Returns the value that was set using <strong>setReadonlyProperties()</strong> method. Default value is <strong>[]</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Set the read-only properties
+        entry.setReadonlyProperties(["name", "description"]);
+
+        entry.createNewEntry({
+          name: "My Product Name",
+          description: "My Product Description"
+        }); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Set the read-only properties
+              entry.setReadonlyProperties(["name", "description"]);
+
+              entry.createNewEntry({
+                name: "My Product Name",
+                description: "My Product Description"
+              }); 
+            }
+          });
+
+        });
+    ```
+
+![Readonly Properties](./images/create_entry/readonly_properties.png)
+
+## Attach Submit Completed
+
+Once the transient entity has been successfully submitted, the [Entry Create](#entry-create) class can then call a function with a specific signature. The result of the submission is then passed to the attached function.
+
+To attach a function, **attachSubmitCompleted()** method can be utilized.
+
+**Setter (attachSubmitCompleted)**
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>submitCompleted</td>
+      <td>(response: <a href="#response-class">ResponseCL&lt;ResponseT = object&gt;</a>) =&gt; void</td>
+      <td>Yes</td>
+      <td>The function that will be called after the successful submit</td>
+    </tr>
+    <tr>
+      <td>listener?</td>
+      <td>object</td>
+      <td>No</td>
+      <td>The default listener is the <strong>controller</strong> from <a href="#constructor">constructor</a></td>
+    </tr>
+  </tbody>
+</table>
+
+!!! example
+
+    Let us assume that once the submission is successful, you would like to receive a response and take the necessary actions.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    import ResponseCL from "ui5/antares/entry/v2/ResponseCL"; // Import the ResponseCL class
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+        // Attach the submit completed function
+        entry.attachSubmitCompleted(this.productSubmitCompleted, this);
+
+        entry.createNewEntry();
+      }
+
+      // Please use the same type for the ResponseCL generic as you did for EntryCreateCL
+      private productSubmitCompleted(response: ResponseCL<IProducts>): void {
+        // Get the status code. Please be aware, it may also be undefined
+        const statusCode = response.getStatusCode();
+
+        // Get the data that was submitted. Please be aware, it may also be undefined
+        const submittedData = response.getResponse();
+
+        if (submittedData) {
+          // Some operations
+          const createdProductID = submittedData.ID;
+        }
+      }
+    }
+
+    interface IProducts {
+      ID: string;
+      name: string;
+      description: string;
+      brand: string;
+      price: number;
+      currency: string;
+      quantityInStock: number;
+      categoryID: string;
+      supplierID: string;
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Attach the submit completed function
+              entry.attachSubmitCompleted(this._productSubmitCompleted, this);
+
+              entry.createNewEntry();
+            },
+
+            _productSubmitCompleted: function (response) {
+              // Get the status code. Please be aware, it may also be undefined
+              const statusCode = response.getStatusCode();
+
+              // Get the data that was submitted. Please be aware, it may also be undefined
+              const submittedData = response.getResponse();
+
+              if (submittedData) {
+                // Some operations
+                const createdProductID = submittedData.ID;
+              }          
+            }
+          });
+
+        });
+    ```
+
+## Attach Submit Failed
+
+In the event that the submission of the transient entity is unsuccessful, the [Entry Create](#entry-create) class can then call a function with a specific signature. The result of the submission will then be passed to the attached function for processing.
+
+To attach a function, **attachSubmitFailed()** method can be utilized.
+
+**Setter (attachSubmitFailed)**
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>submitFailed</td>
+      <td>(response: <a href="#response-class">ResponseCL&lt;ISubmitResponse&gt;</a>) =&gt; void</td>
+      <td>Yes</td>
+      <td>The function that will be called after the submission fails</td>
+    </tr>
+    <tr>
+      <td>listener?</td>
+      <td>object</td>
+      <td>No</td>
+      <td>The default listener is the <strong>controller</strong> from <a href="#constructor">constructor</a></td>
+    </tr>
+  </tbody>
+</table>
+
+!!! example
+
+    Let us assume that once the submission is unsuccessful, you would like to receive a response and take the necessary actions.
+
+=== "TypeScript"
+
+    ```ts
+    import Controller from "sap/ui/core/mvc/Controller";
+    import MessageBox from "sap/m/MessageBox";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    import ResponseCL from "ui5/antares/entry/v2/ResponseCL"; // Import the ResponseCL class
+    import { ISubmitResponse } from "ui5/antares/types/entry/submit"; // Import the error type
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+        // Attach the submit failed function
+        entry.attachSubmitFailed(this.productSubmitFailed, this);
+
+        entry.createNewEntry();
+      }
+
+      // Please use the ISubmitResponse type for the ResponseCL generic
+      private productSubmitFailed(response: ResponseCL<ISubmitResponse>): void {
+        // Get the status code. Please be aware, it may also be undefined
+        const statusCode = response.getStatusCode();
+
+        // Get the response. Please be aware, it may also be undefined
+        const reason = response.getResponse();
+
+        // Get the statusText
+        if (reason) {
+          MessageBox.error(reason.statusText || "The product was not created!");
+        }
+      }
+    }
+
+    interface IProducts {
+      ID: string;
+      name: string;
+      description: string;
+      brand: string;
+      price: number;
+      currency: string;
+      quantityInStock: number;
+      categoryID: string;
+      supplierID: string;
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "sap/m/MessageBox",
+        "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, MessageBox, EntryCreateCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Attach the submit failed function
+              entry.attachSubmitFailed(this._productSubmitFailed, this);
+
+              entry.createNewEntry();
+            },
+
+            _productSubmitFailed: function (response) {
+              // Get the status code. Please be aware, it may also be undefined
+              const statusCode = response.getStatusCode();
+
+              // Get the response. Please be aware, it may also be undefined
+              const reason = response.getResponse();
+
+              // Get the statusText
+              if (reason) {
+                MessageBox.error(reason.statusText || "The product was not created!");
+              }     
+            }
+          });
+
+        });
+    ```
+
+## Response Class
+
+Once the transient entity has been submitted, the generic **ResponseCL&lt;ResponseT = object&gt;** object is instantiated and passed to the functions attached using the [attachSubmitCompleted()](#attach-submit-completed) or [attachSubmitFailed()](#attach-submit-failed) methods.
+
+Once the submit has been completed, the class has two public methods that can be used to retrieve information. The return type of the **getResponse()** method is dependent on the response type (success or failure).
+
+=== "Submit Completed (getResponse)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ResponseT</code> | <code>object</code> | <code>undefined</code></td>
+          <td>Returns the data that was submitted successfully through the OData V2 Model.</td>
+        </tr>
+      </tbody>
+    </table>
+
+=== "Submit Failed (getResponse)"
+
+    <table>
+      <thead>
+        <tr>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>object</code></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>&emsp;statusCode?: <code>string</code> | <code>undefined</code></td>
+          <td>The status code of the HTTP request.</td>
+        </tr>
+        <tr>
+          <td>&emsp;body?: <code>string</code> | <code>undefined</code></td>
+          <td>The HTTP response body.</td>
+        </tr>
+        <tr>
+          <td>&emsp;statusText?: <code>string</code> | <code>undefined</code></td>
+          <td>The HTTP status text.</td>
+        </tr>
+        <tr>
+          <td>&emsp;headers?: <code>object</code> | <code>undefined</code></td>
+          <td>The HTTP response headers.</td>
+        </tr>
+      </tbody>
+    </table>
+
+**Submit Completed and Failed (getStatusCode)**
+
+<table>
+  <thead>
+    <tr>
+      <th>Returns</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>string</code> | <code>undefined</code></td>
+      <td>Returns the status code of the HTTP request.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Value Help
+
+## Validation Logic
 
 ## Object Page
