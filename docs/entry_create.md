@@ -8,11 +8,12 @@ The EntryCreateCL class is responsible for managing the CREATE (POST) operation 
 [SIMPLEFORM_URL]: https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.form.SimpleForm
 [SMARTFORM_URL]: https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartform.SmartForm
 [OBJECT_PAGE_URL]: https://sapui5.hana.ondemand.com/#/api/sap.uxap.ObjectPageLayout
+[VALUEHELP_CLASS_URL]: ./value_help.md
 
 - [sap.m.Dialog][DIALOG_URL] generation with a [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL], or custom content
 - [sap.uxap.ObjectPageLayout][OBJECT_PAGE_URL] generation with a [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL], or custom content
 - User input validation via the [ValidationLogicCL](#validation-logic) class
-- Value Help Dialog generation via the [ValueHelpCL](#value-help) class
+- Value Help Dialog generation via the [ValueHelpCL][VALUEHELP_CLASS_URL] class
 - Property sorting, readonly properties, UUID generation for the properties with `Edm.Guid` type
 - Label generation for the [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL] elements
 - **createEntry()**, **submitChanges()**, and **resetChanges()** handling based on the user interaction
@@ -84,7 +85,7 @@ In order to utilise the functionality of EntryCreateCL, it is necessary to initi
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 14 19 24"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -120,7 +121,7 @@ In order to utilise the functionality of EntryCreateCL, it is necessary to initi
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 18 23"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -305,7 +306,7 @@ The **createNewEntry()** method utilizes the [ODataMetaModel][META_MODEL_URL] to
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 17 25-28"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -345,7 +346,7 @@ The **createNewEntry()** method utilizes the [ODataMetaModel][META_MODEL_URL] to
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 21 29-32"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -451,7 +452,7 @@ Furthermore, the auto-generated dialog ([sap.m.Dialog][DIALOG_URL]) can be obtai
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 3 18 25-37 47 54-66"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
     import EntryUpdateCL from "ui5/antares/entry/v2/EntryUpdateCL"; // Import the class
@@ -540,7 +541,7 @@ Furthermore, the auto-generated dialog ([sap.m.Dialog][DIALOG_URL]) can be obtai
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 4 22 28-40 50 56-68"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -667,7 +668,7 @@ To disable the auto close feature, the **setDisableAutoClose()** method can be u
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 3 20 23 29-34"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
     import ResponseCL from "ui5/antares/entry/v2/ResponseCL"; // Import the response class
@@ -724,7 +725,7 @@ To disable the auto close feature, the **setDisableAutoClose()** method can be u
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 21 24 30-35"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -1037,7 +1038,7 @@ If you have a **com.sap.vocabularies.Common.v1.Label** annotation or a **sap:lab
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 16"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -1062,7 +1063,7 @@ If you have a **com.sap.vocabularies.Common.v1.Label** annotation or a **sap:lab
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -1148,7 +1149,7 @@ myPrefixProductsproductName=Label of the productName property
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 16 25"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -1182,7 +1183,7 @@ myPrefixProductsproductName=Label of the productName property
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20 29"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -1268,7 +1269,7 @@ To modify the default naming strategy employed during label generation, as outli
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 3 17"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
     import { NamingStrategies } from "ui5/antares/types/entry/enums"; // Import the enum
@@ -1294,7 +1295,7 @@ To modify the default naming strategy employed during label generation, as outli
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 4 13 24"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -1378,7 +1379,7 @@ The UI5 Antares is capable of creating a [sap.ui.layout.form.SimpleForm][SIMPLEF
 
 !!! danger "Attention"
 
-    The [Value Help](#value-help) feature is only available when the form type is set to **SIMPLE**.
+    The [Value Help][VALUEHELP_CLASS_URL] class is only available when the form type is set to **SIMPLE**.
 
 **Rendered Controls for SIMPLE Form Type**
 
@@ -1466,7 +1467,7 @@ To modify the default form type, the setFormType() method can be utilized.
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 3 17"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
     import { FormTypes } from "ui5/antares/types/entry/enums"; // Import the enum
@@ -1492,7 +1493,7 @@ To modify the default form type, the setFormType() method can be utilized.
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 4 13 24"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -1596,7 +1597,7 @@ To modify the default form title, please utilize the **setFormTitle()** method.
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 16"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -1621,7 +1622,7 @@ To modify the default form title, please utilize the **setFormTitle()** method.
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -1800,7 +1801,7 @@ To create the form groups or object page sections, **setFormGroups()** method ca
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 17-23 26 29"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -1852,7 +1853,7 @@ To create the form groups or object page sections, **setFormGroups()** method ca
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 21-27 30 33"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -1975,7 +1976,7 @@ The UI5 Antares enables users to add [Custom Data][CUSTOM_DATA_URL] to the auto-
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 3 18-24"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 	import CustomData from "sap/ui/core/CustomData"; // Import the custom data
@@ -2022,7 +2023,7 @@ The UI5 Antares enables users to add [Custom Data][CUSTOM_DATA_URL] to the auto-
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 4 22-28"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -2138,7 +2139,7 @@ The UI5 Antares allows users to set the `textInEditModeSource` property of the [
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 3 18-24"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 	import { smartfield } from "sap/ui/comp/library"; // Import the smartfield library
@@ -2185,7 +2186,7 @@ The UI5 Antares allows users to set the `textInEditModeSource` property of the [
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 4 12 24-30"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -2303,7 +2304,7 @@ Upon clicking the `Begin Button`, the [Entry Create](#entry-create) class initia
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 16"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -2328,7 +2329,7 @@ Upon clicking the `Begin Button`, the [Entry Create](#entry-create) class initia
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 20"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -2409,7 +2410,7 @@ The default type used on the `Begin Button` is [ButtonType.Success][BUTTON_TYPE_
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 3 17"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 	import { ButtonType } from "sap/m/library"; // Import the ButtonType enum
@@ -2435,7 +2436,7 @@ The default type used on the `Begin Button` is [ButtonType.Success][BUTTON_TYPE_
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 4 21"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -2515,7 +2516,7 @@ Once the end user clicks the `End Button`, the [Entry Create](#entry-create) cla
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 16"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 
@@ -2540,7 +2541,7 @@ Once the end user clicks the `End Button`, the [Entry Create](#entry-create) cla
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 20"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -2619,7 +2620,7 @@ The default type used on the `End Button` is [ButtonType.Negative][BUTTON_TYPE_U
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 3 17"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 	import { ButtonType } from "sap/m/library"; // Import the ButtonType enum
@@ -2645,7 +2646,7 @@ The default type used on the `End Button` is [ButtonType.Negative][BUTTON_TYPE_U
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 4 21"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -2767,7 +2768,7 @@ To modify the default visibility behavior of the properties with `Edm.Guid` type
 
 === "TypeScript"
 
-	```ts
+	``` ts linenums="1" hl_lines="2 3 17 20"
 	import Controller from "sap/ui/core/mvc/Controller";
 	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
 	import { GuidStrategies } from "ui5/antares/types/entry/enums"; // Import the GuidStrategies enum
@@ -2796,7 +2797,7 @@ To modify the default visibility behavior of the properties with `Edm.Guid` type
 
 === "JavaScript"
 
-	```js
+	``` js linenums="1" hl_lines="3 4 13 24 27"
 	sap.ui.define([
 	    "sap/ui/core/mvc/Controller",
 	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
@@ -2958,7 +2959,7 @@ The order of the **non-key** properties can be modified using the **setPropertyO
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 15 24"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
     /**
@@ -2991,7 +2992,7 @@ The order of the **non-key** properties can be modified using the **setPropertyO
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20 29"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -3098,9 +3099,10 @@ To exclude properties from the auto-generated form, please utilize the **setExcl
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 16"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
     /**
      * @namespace your.apps.namespace
      */
@@ -3122,7 +3124,7 @@ To exclude properties from the auto-generated form, please utilize the **setExcl
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -3220,9 +3222,10 @@ In order to include properties in the mandatory check mechanism, the **setMandat
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 16"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
     /**
      * @namespace your.apps.namespace
      */
@@ -3244,7 +3247,7 @@ In order to include properties in the mandatory check mechanism, the **setMandat
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -3344,9 +3347,10 @@ To customize the default error message, please utilize the **setMandatoryErrorMe
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 16"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
     /**
      * @namespace your.apps.namespace
      */
@@ -3368,7 +3372,7 @@ To customize the default error message, please utilize the **setMandatoryErrorMe
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -3457,9 +3461,10 @@ To prevent end users from editing certain properties, the **setReadonlyPropertie
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 16"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
     /**
      * @namespace your.apps.namespace
      */
@@ -3484,7 +3489,7 @@ To prevent end users from editing certain properties, the **setReadonlyPropertie
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -3557,7 +3562,7 @@ To attach a function, **attachSubmitCompleted()** method can be utilized.
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="2 3 16 22-33"
     import Controller from "sap/ui/core/mvc/Controller";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
     import ResponseCL from "ui5/antares/entry/v2/ResponseCL"; // Import the ResponseCL class
@@ -3608,7 +3613,7 @@ To attach a function, **attachSubmitCompleted()** method can be utilized.
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="3 20 25-36"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "ui5/antares/entry/v2/EntryCreateCL" // Import the class
@@ -3689,7 +3694,7 @@ To attach a function, **attachSubmitFailed()** method can be utilized.
 
 === "TypeScript"
 
-    ```ts
+    ``` ts linenums="1" hl_lines="3 4 5 18 24-35"
     import Controller from "sap/ui/core/mvc/Controller";
     import MessageBox from "sap/m/MessageBox";
     import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
@@ -3742,7 +3747,7 @@ To attach a function, **attachSubmitFailed()** method can be utilized.
 
 === "JavaScript"
 
-    ```js
+    ``` js linenums="1" hl_lines="4 21 26-37"
     sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "sap/m/MessageBox",
@@ -3857,8 +3862,6 @@ Once the submit has been completed, the class has two public methods that can be
     </tr>
   </tbody>
 </table>
-
-## Value Help
 
 ## Validation Logic
 

@@ -30,6 +30,16 @@ theme:
       primary: indigo
       accent: lime
 
+nav:
+  - UI5 Antares: index.md
+  - Entry Create: entry_create.md
+  - Entry Update: entry_update.md
+  - Entry Delete: entry_delete.md
+  - Entry Read: entry_read.md
+  - Value Help: value_help.md
+  - Fragment Class: fragment_class.md
+  - Promisified OData V2 Classes: odata_classes.md
+
 extra:
   social:
     - icon: fontawesome/brands/github
