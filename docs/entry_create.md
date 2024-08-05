@@ -1652,19 +1652,1255 @@ To modify the default form title, please utilize the **setFormTitle()** method.
 
 ![Form Title](./images/create_entry/form_title.png)
 
-## Value Help
+## Form Grouping
 
-## Validation Logic
+By default, all the properties of an `EntitySet` are placed in a single group or section in the auto-generated dialog or object page, with the title for that group hidden (visible on the object page). It is possible to categorize the properties into different groups in the auto-generated form, should you wish to do so.
 
-## Properties with Edm.Guid Type
+!!! info
+
+    Upon activation of the [Object Page](#object-page) feature, the form grouping feature generates sections on the object page.
+
+To create the form groups or object page sections, **setFormGroups()** method can be utilized.
+
+!!! info
+
+	- All of the **key** properties of the `EntitySet` are placed into a default group, and this behavior is not open to modification. The title of this group can be modified using the **setDefaultGroupTitle()** method. If the **setDefaultGroupTitle()** method is not used, the default group title will remain hidden in the auto-generated dialog. However, it will always be visible in the auto-generated object page, and the title will be derived from the [Form Title](#form-title) feature for the object page.
+
+	- Any properties not included in the **setFormGroups()** method or the default group are placed in a group designated as the **Unknown Group**. To disable this group, set the second parameter of the **setFormGroups()** method to false. This configuration allows only the key properties and the other properties specified in the **setFormGroups()** method to be visible in the auto-generated dialog or auto-generated object page.
+
+	- Should you wish to retain the **Unknown Group** but modify the group title, you may utilize the **setUnknownGroupTitle()** method.
+
+=== "Setter (setFormGroups)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>groups</td>
+	      <td><a href="#iformgroups-type-definition">IFormGroups[]</a></td>
+	      <td>Yes</td>
+	      <td>The form groups or sections displayed in the auto-generated dialog or object page</td>
+	    </tr>
+	    <tr>
+	      <td>includeAllProperties?</td>
+	      <td><code>boolean</code></td>
+	      <td>No</td>
+	      <td>If set to <strong>false</strong> all the other <strong>non-key</strong> properties will not be included. Default is true</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getFormGroups)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="#iformgroups-type-definition">IFormGroups[]</a></td>
+	      <td>Returns the groups that were set using <strong>setFormGroups()</strong> method. Default value is <strong>[]</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+---
+
+=== "Setter (setDefaultGroupTitle)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>title</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The title of the default group or section that is generated for the <strong>key</strong> properties</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getDefaultGroupTitle)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><code>string</code></td>
+	      <td>Returns the title that was set using <strong>setDefaultGroupTitle()</strong> method. Default value is <strong>undefined</strong> for the dialog. However, it is derived from the <a 	href="#form-title">Form Title</a> for the object page</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+---
+
+=== "Setter (setUnknownGroupTitle)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>title</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The title of the unknown group or section that is generated for the <strong>other</strong> properties</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getUnknownGroupTitle)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><code>string</code></td>
+	      <td>Returns the title that was set using <strong>setUnknownGroupTitle()</strong> method. Default value is <strong>Unknown Group</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products** and the objective is to categorize the properties into different groups in the auto-generated form. Please see the results below after the code blocks for reference.
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public onCreateProduct() {
+	    // initialize
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // set the form groups and include all the other properties
+	    entry.setFormGroups([{
+	      title: "My Group 1",
+	      properties: ["name", "description"]
+	    },{
+	      title: "My Group 2",
+	      properties: ["brand", "price", "currency"]
+	    }]);
+
+	    // set the default group title
+	    entry.setDefaultGroupTitle("My Default Group");
+
+	    // set the unknown group title
+	    entry.setUnknownGroupTitle("My Unknown Group");
+
+	    // call the dialog
+	    entry.createNewEntry();
+	  }
+
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          // initialize
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // set the form groups and include all the other properties
+	          entry.setFormGroups([{
+	            title: "My Group 1",
+	            properties: ["name", "description"]
+	          },{
+	            title: "My Group 2",
+	            properties: ["brand", "price", "currency"]
+	          }]);
+
+	          // set the default group title
+	          entry.setDefaultGroupTitle("My Default Group");
+
+	          // set the unknown group title
+	          entry.setUnknownGroupTitle("My Unknown Group");
+
+	          // call the dialog
+	          entry.createNewEntry(); 
+	        }
+
+	      });
+
+	    });
+	```
+
+![Form Grouping](./images/create_entry/form_grouping_1.png)
+
+### IFormGroups Type Definition
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IFormGroups</td>
+      <td><code>object</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>&emsp;title</td>
+      <td><code>string</code></td>
+      <td>The title of the form group or object page section</td>
+    </tr>
+    <tr>
+      <td>&emsp;properties</td>
+      <td><code>string[]</code></td>
+      <td>The properties that will be included into the group</td>
+    </tr>
+  </tbody>
+</table>
+
+## Custom Data
+
+[CUSTOM_DATA_URL]: https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui.core.CustomData
+
+The UI5 Antares enables users to add [Custom Data][CUSTOM_DATA_URL] to the auto-generated SIMPLE/SMART form elements. To add custom data, simply use the **setFieldCustomData()** method.
+
+=== "Setter (setFieldCustomData)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>customData</td>
+	      <td><a href="#ifieldcustomdata-type-definition">IFieldCustomData[]</a></td>
+	      <td>Yes</td>
+	      <td>The custom data that will be added to the auto-generated form elements</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getFieldCustomData)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="#ifieldcustomdata-type-definition">IFieldCustomData[]</a></td>
+	      <td>Returns the value that was set using <strong>setFieldCustomData()</strong> method. Default value is <strong>[]</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+**Example**
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import CustomData from "sap/ui/core/CustomData"; // Import the custom data
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public onCreateProduct() {
+	    // initialize
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // set the custom data
+	    entry.setFieldCustomData([{
+	      propertyName: "name",
+	      customData: new CustomData({key: "MyKey1", value:"MyValue1"})
+	    },{
+	      propertyName: "description",
+	      customData: new CustomData({key: "MyKey2", value:"MyValue2"})
+	    }]);
+
+	    // call the dialog
+	    entry.createNewEntry();
+	  }
+
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "sap/ui/core/CustomData" // Import the custom data
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, CustomData) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          // initialize
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // set the custom data
+	          entry.setFieldCustomData([{
+	            propertyName: "name",
+	            customData: new CustomData({key: "MyKey1", value:"MyValue1"})
+	          },{
+	            propertyName: "description",
+	            customData: new CustomData({key: "MyKey2", value:"MyValue2"})
+	          }]);
+
+	          // call the dialog
+	          entry.createNewEntry(); 
+	        }
+
+	      });
+
+	    });
+	```
+
+### IFieldCustomData Type Definition
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IFieldCustomData</td>
+      <td><code>object</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>&emsp;propertyName</td>
+      <td><code>string</code></td>
+      <td>The name of the property that will have the custom data</td>
+    </tr>
+    <tr>
+      <td>&emsp;customData</td>
+      <td><a href="https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui.core.CustomData">Custom Data</a></td>
+      <td>The custom data</td>
+    </tr>
+  </tbody>
+</table>
+
+## Text In Edit Mode Source
+
+[TEXT_IN_EDIT_URL]: https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartfield.TextInEditModeSource
+
+The UI5 Antares allows users to set the `textInEditModeSource` property of the [SmartField][SMARTFIELD_URL] when a [SmartForm][SMARTFORM_URL] is generated. To set the `textInEditModeSource` property, the **setTextInEditModeSource()** method can be utilized.
+
+=== "Setter (setTextInEditModeSource)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>textInEditModeSource</td>
+	      <td><a href="#itextineditmodesource-type-definition">ITextInEditModeSource[]</a></td>
+	      <td>Yes</td>
+	      <td>The <code>textInEditModeSource</code> configs for the properties</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getTextInEditModeSource)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="#itextineditmodesource-type-definition">ITextInEditModeSource[]</a></td>
+	      <td>Returns the value that was set using <strong>setTextInEditModeSource()</strong> method. Default value is <strong>[]</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+**Example**
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import { smartfield } from "sap/ui/comp/library"; // Import the smartfield library
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public onCreateProduct() {
+	    // initialize
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // set the textInEditModeSource
+	    entry.setTextInEditModeSource([{
+	      propertyName: "name",
+	      textInEditModeSource: smartfield.TextInEditModeSource.NavigationProperty
+	    },{
+	      propertyName: "description",
+	      customData: smartfield.TextInEditModeSource.ValueList
+	    }]);
+
+	    // call the dialog
+	    entry.createNewEntry();
+	  }
+
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "sap/ui/comp/library" // Import the comp library
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, UIComp) {
+	      "use strict";
+
+	      const { TextInEditModeSource } = UIComp["smartfield"]; // Destructure to get the enum
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          // initialize
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // set the textInEditModeSource
+	          entry.setTextInEditModeSource([{
+	            propertyName: "name",
+	            textInEditModeSource: TextInEditModeSource.NavigationProperty
+	          },{
+	            propertyName: "description",
+	            customData: TextInEditModeSource.ValueList
+	          }]);
+
+	          // call the dialog
+	          entry.createNewEntry(); 
+	        }
+
+	      });
+
+	    });
+	```
+
+### ITextInEditModeSource Type Definition
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ITextInEditModeSource</td>
+      <td><code>object</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>&emsp;propertyName</td>
+      <td><code>string</code></td>
+      <td>The name of the property whose <code>textInEditModeSource</code> property will be set</td>
+    </tr>
+    <tr>
+      <td>&emsp;textInEditModeSource</td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartfield.TextInEditModeSource">TextInEditModeSource</a></td>
+      <td>The <code>textInEditModeSource</code> property of the smartfield</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Begin Button Text
 
+Upon clicking the `Begin Button`, the [Entry Create](#entry-create) class initiates the validation process and submits the transient entity through the OData V2 model. The default text displayed on the Begin button is **Create**. The text displayed on the `Begin Button` can be modified using the **setBeginButtonText()** method.
+
+=== "Setter (setBeginButtonText)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>text</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The text displayed on the begin button</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getBeginButtonText)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><code>string</code></td>
+	      <td>Returns the value that was set using <strong>setBeginButtonText()</strong> method. Default value is <strong>Create</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL(this, "Products");
+
+	    // Set the begin button text
+	    entry.setBeginButtonText("My Begin Button Text");
+
+	    entry.createNewEntry(); 
+	  }
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Set the begin button text
+	          entry.setBeginButtonText("My Begin Button Text");
+
+	          entry.createNewEntry(); 
+	        }
+	      });
+
+	    });
+	```
+
+![Begin Button Text](./images/create_entry/begin_button_text.png)
+
 ## Begin Button Type
+
+[BUTTON_TYPE_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.ButtonType
+
+The default type used on the `Begin Button` is [ButtonType.Success][BUTTON_TYPE_URL]. Should you wish to modify the default Begin Button type, please utilize the **setBeginButtonType()** method.
+
+=== "Setter (setBeginButtonType)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>type</td>
+	      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ButtonType">ButtonType</a></td>
+	      <td>Yes</td>
+	      <td>The type of the begin button</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getBeginButtonType)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ButtonType">ButtonType</a></td>
+	      <td>Returns the value that was set using <strong>setBeginButtonType()</strong> method. Default value is <strong>Success</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import { ButtonType } from "sap/m/library"; // Import the ButtonType enum
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL(this, "Products");
+
+	    // Set the begin button type
+	    entry.setBeginButtonType(ButtonType.Attention);
+
+	    entry.createNewEntry(); 
+	  }
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "sap/m/ButtonType" // Import the ButtonType enum
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, ButtonType) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Set the begin button type
+	          entry.setBeginButtonType(ButtonType.Attention);
+
+	          entry.createNewEntry(); 
+	        }
+	      });
+
+	    });
+	```
+
+![Begin Button Type](./images/create_entry/begin_button_type.png)
 
 ## End Button Text
 
+Once the end user clicks the `End Button`, the [Entry Create](#entry-create) class resets the transient entity through the OData V2 Model and destroys the created dialog. The default text displayed on the end button is **Close**. This text can be modified using the **setEndButtonText()** method.
+
+=== "Setter (setEndButtonText)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>text</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The text displayed on the end button</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getEndButtonText)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><code>string</code></td>
+	      <td>Returns the value that was set using <strong>setEndButtonText()</strong> method. Default value is <strong>Close</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL(this, "Products");
+
+	    // Set the end button text
+	    entry.setEndButtonText("My End Button Text");
+
+	    entry.createNewEntry(); 
+	  }
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Set the end button text
+	          entry.setEndButtonText("My End Button Text");
+
+	          entry.createNewEntry(); 
+	        }
+	      });
+
+	    });
+	```
+
+![End Button Text](./images/create_entry/end_button_text.png)
+
 ## End Button Type
+
+The default type used on the `End Button` is [ButtonType.Negative][BUTTON_TYPE_URL]. Should you wish to modify the default end button type, please utilize the **setEndButtonType()** method.
+
+=== "Setter (setEndButtonType)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>type</td>
+	      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ButtonType">ButtonType</a></td>
+	      <td>Yes</td>
+	      <td>The type of the end button</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getEndButtonType)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ButtonType">ButtonType</a></td>
+	      <td>Returns the value that was set using <strong>setEndButtonType()</strong> method. Default value is <strong>Negative</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Please refer to the result below, which can be found after the code blocks.
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import { ButtonType } from "sap/m/library"; // Import the ButtonType enum
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL(this, "Products");
+
+	    // Set the end button type
+	    entry.setEndButtonType(ButtonType.Transparent);
+
+	    entry.createNewEntry(); 
+	  }
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "sap/m/ButtonType" // Import the ButtonType enum
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, ButtonType) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Set the end button type
+	          entry.setEndButtonType(ButtonType.Transparent);
+
+	          entry.createNewEntry(); 
+	        }
+	      });
+
+	    });
+	```
+
+![End Button Type](./images/create_entry/end_button_type.png)
+
+## Properties with Edm.Guid Type
+
+The [Entry Create](#entry-create) class automatically generates unique, randomly generated UUID values for the **key** properties (with `Edm.Guid` type) of the `EntityType`, which are then hidden from view on the form for the end user.
+
+Should you wish to modify the default random UUID generation behavior, please utilize the **setGenerateRandomGuid()** method.
+
+=== "Setter (setGenerateRandomGuid)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>strategy</td>
+	      <td><a href="#guidstrategies-enum">GuidStrategies</a></td>
+	      <td>Yes</td>
+	      <td>The random UUID generation strategy</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getGenerateRandomGuid)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="#guidstrategies-enum">GuidStrategies</a></td>
+	      <td>Returns the value that was set using <strong>setGenerateRandomGuid()</strong> method. Default value is <strong>ONLY_KEY</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+To modify the default visibility behavior of the properties with `Edm.Guid` type, please utilize the **setDisplayGuidProperties()** method.
+
+=== "Setter (setDisplayGuidProperties)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>strategy</td>
+	      <td><a href="#guidstrategies-enum">GuidStrategies</a></td>
+	      <td>Yes</td>
+	      <td>The visibility strategy for the properties with <code>Edm.Guid</code> type</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getDisplayGuidProperties)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="#guidstrategies-enum">GuidStrategies</a></td>
+	      <td>Returns the value that was set using <strong>setDisplayGuidProperties()</strong> method. Default value is <strong>ONLY_NON_KEY</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Let us consider the following scenario: You have an `EntitySet` named **Products** with `ID`, `categoryID`, and `supplierID`, all of which have the `Edm.Guid` type. You would like to allow the end user to view all `Edm.Guid` properties and have the library generate random UUID values only for the **non-key** properties.
+
+=== "TypeScript"
+
+	```ts
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import { GuidStrategies } from "ui5/antares/types/entry/enums"; // Import the GuidStrategies enum
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL(this, "Products");
+
+	    // Let the end user to display all the properties with Edm.Guid type
+	    entry.setDisplayGuidProperties(GuidStrategies.ALL);
+
+	    // Have the library generate random UUID values only for the non-key properties
+	    entry.setGenerateRandomGuid(GuidStrategies.ONLY_NON_KEY);
+
+	    entry.createNewEntry(); 
+	  }
+	}
+	```
+
+=== "JavaScript"
+
+	```js
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "ui5/antares/types/entry/enums" // Import the enums
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, EntryEnums) {
+	      "use strict";
+
+	      // Destructure the object to retrieve the GuidStrategies enum
+	      const { GuidStrategies } = EntryEnums;
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Let the end user to display all the properties with Edm.Guid type
+	          entry.setDisplayGuidProperties(GuidStrategies.ALL);
+
+	          // Have the library generate random UUID values only for the non-key properties
+	          entry.setGenerateRandomGuid(GuidStrategies.ONLY_NON_KEY);
+
+	          entry.createNewEntry(); 
+	        }
+	      });
+
+	    });
+	```
+
+![Guid Strategy](./images/create_entry/guid_strategy.png)
+
+### GuidStrategies Enum
+
+!!! info
+
+	Please note that if a random UUID is generated for a property and marked as visible, this field **cannot be edited** by the end user.
+
+=== "setGenerateRandomGuid()"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>GuidStrategies.ALL</td>
+	      <td>Generate random UUID values for all the properties with <code>Edm.Guid</code> type</td>
+	    </tr>
+	    <tr>
+	      <td>GuidStrategies.ONLY_KEY</td>
+	      <td>Generate random UUID values only for the <strong>key</strong> properties with <code>Edm.Guid</code> type</td>
+	    </tr>
+	    <tr>
+	      <td>GuidStrategies.ONLY_NON_KEY</td>
+	      <td>Generate random UUID values only for the properties that are <strong>not key</strong> and have <code>Edm.Guid</code> type</td>
+	    </tr>
+	    <tr>
+	      <td>GuidStrategies.NONE</td>
+	      <td>No random UUID generation</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "setDisplayGuidProperties()"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>GuidStrategies.ALL</td>
+	      <td>The end user can display all the properties with <code>Edm.Guid</code> type</td>
+	    </tr>
+	    <tr>
+	      <td>GuidStrategies.ONLY_KEY</td>
+	      <td>The end user can display only the <strong>key</strong> properties with <code>Edm.Guid</code> type</td>
+	    </tr>
+	    <tr>
+	      <td>GuidStrategies.ONLY_NON_KEY</td>
+	      <td>The end user can display only the properties that are <strong>not key</strong> and have <code>Edm.Guid</code> type</td>
+	    </tr>
+	    <tr>
+	      <td>GuidStrategies.NONE</td>
+	      <td>No property with <code>Edm.Guid</code> is visible to the end user</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+## Value Help
+
+## Validation Logic
 
 ## Mandatory Properties
 
