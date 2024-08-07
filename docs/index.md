@@ -534,3 +534,11 @@ Please find below a list of features that are scheduled for inclusion in upcomin
     </tr>    
   </tbody>
 </table>
+
+## Change Log
+
+Please see [Change Log](./change_log.md).
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/hasanciftci26/ui5-antares/blob/master/LICENSE) file for details.
