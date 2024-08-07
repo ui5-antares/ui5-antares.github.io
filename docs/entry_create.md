@@ -9,6 +9,9 @@ The EntryCreateCL class is responsible for managing the CREATE (POST) operation 
 [SMARTFORM_URL]: https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartform.SmartForm
 [OBJECT_PAGE_URL]: https://sapui5.hana.ondemand.com/#/api/sap.uxap.ObjectPageLayout
 [VALUEHELP_CLASS_URL]: ./value_help.md
+[ENTRY_UPDATE_URL]: ./entry_update.md
+[ENTRY_DELETE_URL]: ./entry_delete.md
+[ENTRY_READ_URL]: ./entry_read.md
 
 - [sap.m.Dialog][DIALOG_URL] generation with a [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL], or custom content
 - [sap.uxap.ObjectPageLayout][OBJECT_PAGE_URL] generation with a [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL], or custom content
@@ -18,6 +21,10 @@ The EntryCreateCL class is responsible for managing the CREATE (POST) operation 
 - Label generation for the [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL] elements
 - **createEntry()**, **submitChanges()**, and **resetChanges()** handling based on the user interaction
 - Call a fragment and bind the context in case you do not want to use the auto-generated dialog
+
+!!! info
+
+	While the examples of the features on this page are based on the [Entry Create](#entry-create) class, the majority of the features are also available in the [Entry Update][ENTRY_UPDATE_URL], [Entry Delete][ENTRY_DELETE_URL], and [Entry Read][ENTRY_READ_URL] classes. 
 
 ## Use Case
 
@@ -390,8 +397,6 @@ The generated form with default values will be similar in appearance to the foll
 ![Generated Form](./images/create_entry/create_new_entry_default.png)
 
 ## Manual Submit
-
-[ENTRY_UPDATE_URL]: ./entry_update.md
 
 As a default setting, any changes made by the end user on the auto-generated form will be automatically submitted by the [Entry Create](#entry-create) and [Entry Update][ENTRY_UPDATE_URL] classes upon pressing the **begin button**. There may be a necessity, however, to run some code prior to submitting the changes via the OData V2 model.
 
@@ -3865,4 +3870,1689 @@ Once the submit has been completed, the class has two public methods that can be
 
 ## Validation Logic
 
+The UI5 Antares classes include a built-in validation mechanism to guarantee that the input provided by the end user is accurate and complete before submission through the OData V2 model.
+
+In the event of a validation failure, the end user is promptly informed via an [sap.m.MessageBox.error][MESSAGEBOX_URL] message, and the submission remains in a pending status until the validation process is successfully completed.
+
+There are two possible approaches to user input validation.
+
+1) [Validation with Operator](#validation-with-operator)
+
+2) [Validation with Validator Function](#validation-with-validator-function)
+
+### Constructor
+
+In order to utilise the **ValidationLogicCL** class, it is necessary to initialise an object from this class.
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>settings</td>
+      <td><code>object</code></td>
+      <td>Yes</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;propertyName</td>
+      <td><code>string</code></td>
+      <td>Yes</td>
+      <td></td>
+      <td>This is the property of the <code>EntitySet</code> that is set in the <a href="#constructor">constructor</a> for which the validation will be performed.</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;validator?</td>
+      <td><code>(value: <a href="#validation-with-validator-function">ValidatorValueParameter</a>) =&gt; boolean</code></td>
+      <td>No</td>
+      <td></td>
+      <td>The validator function</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;listener?</td>
+      <td><code>object</code></td>
+      <td>No</td>
+      <td></td>
+      <td>The object that is bind to the validator function</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;value1?</td>
+      <td><code>string</code> | <code>number</code> | <code>Date</code> | <a href="https://sapui5.hana.ondemand.com/#/api/module:sap/ui/core/date/UI5Date">UI5 Date</a></td>
+      <td>No</td>
+      <td></td>
+      <td>First value to use with the given operator</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;value2?</td>
+      <td><code>string</code> | <code>number</code> | <code>Date</code> | <a href="https://sapui5.hana.ondemand.com/#/api/module:sap/ui/core/date/UI5Date">UI5 Date</a></td>
+      <td>No</td>
+      <td></td>
+      <td>Second value to use with the given operator, used only for the <strong>BT</strong> and <strong>NB</strong> operators</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;operator?</td>
+      <td><a href="#validationoperator-enum">ValidationOperator</a></td>
+      <td>No</td>
+      <td></td>
+      <td>Operator used for the validation</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;message?</td>
+      <td><code>string</code></td>
+      <td>No</td>
+      <td>Validation failed for <code>propertyName</code></td>
+      <td>The message that is displayed when the validation is unsuccessful</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;showMessageBox?</td>
+      <td><code>boolean</code></td>
+      <td>No</td>
+      <td>true</td>
+      <td>Indicates whether the message box should be displayed by the end user</td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;invalidValueMessage?</td>
+      <td><code>string</code></td>
+      <td>No</td>
+      <td>Invalid value for <code>propertyName</code></td>
+      <td>Displayed message when the end user types in an invalid value. For instance: string to a number field</td>
+    </tr>
+  </tbody>
+</table>
+
+### Validation with Operator
+
+In the event that particular values are required for user input validation purposes, these can be defined within the [constructor](#constructor_1) function.
+
+!!! tip
+
+	Please note that the type of the value1 and value2 parameters must align with the type of the property undergoing validation.
+
+	As an example, when the property type is `Edm.DateTime` or `Edm.DateTimeOffset`, then the data type of the `value1` and `value2` must be either **JavaScript Date** or [UI5 Date](https://sapui5.hana.ondemand.com/#/api/module:sap/ui/core/date/UI5Date).
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products** with the following properties: `ID`, `name`, `description`, `price`, and `currency`. We wish to implement a logic that allows the **price** to be between 1500 and 2500, and that the **currency** is limited to EUR.
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 3 4 18-25 28-33 36 39"
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import ValidationLogicCL from "ui5/antares/ui/ValidationLogicCL"; // Import the ValidationLogicCL class
+	import { ValidationOperator } from "ui5/antares/types/ui/enums"; // Import the ValidationOperator enum
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // Create an object from the Validation Logic class for the price validation
+	    const priceValidation = new ValidationLogicCL({
+	      propertyName: "price", // price property of the Products
+	      operator: ValidationOperator.BT,
+	      value1: 1500,
+	      value2: 2500,
+	      message: "The price must be between 1500 and 2500",
+	      invalidValueMessage: "Please only type number for the price field"      
+	    });
+
+	    // Create an object from the Validation Logic class for the currency validation
+	    const currencyValidation = new ValidationLogicCL({
+	      propertyName: "currency", // Currency property of the Products
+	      operator: ValidationOperator.EQ,
+	      value1: "EUR",
+	      message: "Only EUR currency can be used"  
+	    });
+
+	    // Add the price validation object
+	    entry.addValidationLogic(priceValidation);
+
+	    // Add the currency validation object
+	    entry.addValidationLogic(currencyValidation);
+
+	    entry.createNewEntry();
+	  }
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 4 5 14 25-32 35-40 43 46"
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "ui5/antares/ui/ValidationLogicCL", // Import the ValidationLogicCL class
+	    "ui5/antares/types/ui/enums" // Import the enums
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, ValidationLogicCL, UIEnums) {
+	      "use strict";
+
+	      // Destructure the object to retrieve the ValidationOperator enum
+	      const { ValidationOperator } = UIEnums;
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Create an object from the Validation Logic class for the price validation
+	          const priceValidation = new ValidationLogicCL({
+	            propertyName: "price", // price property of the Products
+	            operator: ValidationOperator.BT,
+	            value1: 1500,
+	            value2: 2500,
+	            message: "The price must be between 1500 and 2500",
+	            invalidValueMessage: "Please only type number for the price field"      
+	          });
+
+	          // Create an object from the Validation Logic class for the currency validation
+	          const currencyValidation = new ValidationLogicCL({
+	            propertyName: "currency", // Currency property of the Products
+	            operator: ValidationOperator.EQ,
+	            value1: "EUR",
+	            message: "Only EUR currency can be used"  
+	          });
+
+	          // Add the price validation object
+	          entry.addValidationLogic(priceValidation);
+
+	          // Add the currency validation object
+	          entry.addValidationLogic(currencyValidation);
+
+	          entry.createNewEntry();
+	        }
+	      });
+
+	    });
+	```
+
+<table>
+  <thead>
+    <tr>
+      <th>Validation Failed</th>
+      <th>Invalid Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/create_entry/validation_logic_1.png?raw=true" alt="Validation Failed"></td>
+      <td><img src="../images/create_entry/validation_logic_2.png?raw=true" alt="Invalid Value"></td>
+    </tr>
+  </tbody>
+</table>
+
+### Validation with Validator Function
+
+[UI5_DATE_URL]: https://sapui5.hana.ondemand.com/#/api/module:sap/ui/core/date/UI5Date
+[UI5_CONTROL_URL]: https://sapui5.hana.ondemand.com/#/api/sap.ui.core.Control
+[COMBOBOX_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.ComboBox
+
+In the event that the validation logic is more complex than a simple check of specific values, it is possible to use a custom function for the purpose of validation.
+
+It is essential that the function used for validation includes a parameter to retrieve the value entered by the end user. The UI5 Antares library transfers the user input or the [custom control](#custom-control) to the validator function as a parameter.
+
+!!! info
+
+	- The value passed to the validator function can be any one of the following types: string, number, boolean, JavaScript Date, [UI5 Date][UI5_DATE_URL], or [UI5 Control][UI5_CONTROL_URL].
+
+	- If the validator function is utilized for the purpose of validating a [Custom Control](#custom-control), the type of the parameter will be the [UI5 Control][UI5_CONTROL_URL] that is added. To illustrate, if a [sap.m.ComboBox][COMBOBOX_URL] is added as a custom control, the [sap.m.ComboBox][COMBOBOX_URL] will be passed back to the validator function. 
+
+	- Please note that for auto-generated form elements, the value can only be one of the following types: string, number, boolean, JavaScript Date, or [UI5 Date][UI5_DATE_URL].
+
+The validator function must return a **boolean** value indicating whether the validation was successful or not.
+
+<table>
+  <thead>
+    <tr>
+      <th>Return Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>true</code></td>
+      <td>Validation is successful</td>
+    </tr>
+    <tr>
+      <td><code>false</code></td>
+      <td>Validation is not successful</td>
+    </tr>
+  </tbody>
+</table>
+
+**Example**
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 3 4 18-23 26 31-39"
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import ValidationLogicCL from "ui5/antares/ui/ValidationLogicCL"; // Import the ValidationLogicCL class
+	import { ValidatorValueParameter } from "ui5/antares/types/ui/validation"; // Import the validator function parameter type
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // Create an object from the Validation Logic class for the currency validation
+	    const currencyValidation = new ValidationLogicCL({
+	      propertyName: "currency", // Currency property of the Products
+	      validator: this.validateCurrency,
+	      listener: this,
+	      message: "Only EUR currency can be used"  
+	    });
+
+	    // Add the currency validation object
+	    entry.addValidationLogic(currencyValidation);
+
+	    entry.createNewEntry();
+	  }
+
+	  public validateCurrency(value: ValidatorValueParameter): boolean {
+	    // Here you can write your own validation logic
+
+	    if ((value as string) !== "EUR") {
+	      return false; // Validation is not successful
+	    }
+
+	    return true; // Validation is successful
+	  }
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 4 21-26 29 34-42"
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "ui5/antares/ui/ValidationLogicCL" // Import the ValidationLogicCL class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, ValidationLogicCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Create an object from the Validation Logic class for the currency validation
+	          const currencyValidation = new ValidationLogicCL({
+	            propertyName: "currency", // Currency property of the Products
+	            validator: this._validateCurrency,
+	            listener: this,
+	            message: "Only EUR currency can be used"  
+	          });
+
+	          // Add the currency validation object
+	          entry.addValidationLogic(currencyValidation);
+
+	          entry.createNewEntry();
+	        },
+
+	        _validateCurrency: function (value) {
+	          // Here you can write your own validation logic
+
+	          if (value !== "EUR") {
+	            return false; // Validation is not successful
+	          }
+
+	          return true; // Validation is successful
+	        }
+	      });
+
+	    });
+	```
+
+### ValidationOperator Enum
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ValidationOperator.BT</td>
+      <td>Between. Boundaries are included</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.Contains</td>
+      <td>Contains. It can only be used with <code>string</code> type</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.EndsWith</td>
+      <td>Ends with. It can only be used with <code>string</code> type</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.EQ</td>
+      <td>Equals</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.GE</td>
+      <td>Greater than or equals</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.GT</td>
+      <td>Greater than</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.LE</td>
+      <td>Less than or equals</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.LT</td>
+      <td>Less than</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.NB</td>
+      <td>Not between. Boundaries are included</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.NE</td>
+      <td>Not equals</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.NotContains</td>
+      <td>Not contains. It can only be used with <code>string</code> type</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.NotEndsWith</td>
+      <td>Not ends with. It can only be used with <code>string</code> type</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.NotStartsWith</td>
+      <td>Not starts with. It can only be used with <code>string</code> type</td>
+    </tr>
+    <tr>
+      <td>ValidationOperator.StartsWith</td>
+      <td>Starts with. It can only be used with <code>string</code> type</td>
+    </tr>
+  </tbody>
+</table>
+
 ## Object Page
+
+[ROUTER_INFO_URL]: https://sapui5.hana.ondemand.com/sdk/#/topic/e5200ee755f344c8aef8efcbab3308fb
+
+The [createNewEntry()](#create-new-entry) method, by default, generates a [sap.m.Dialog][DIALOG_URL] including a [Simple Form][SIMPLEFORM_URL] or [Smart Form][SMARTFORM_URL] content, with configurations completed using the public methods. However, there may be instances where users require a larger screen, due to one or more of the reasons listed below:
+
+- The `EntitySet` may have numerous properties, and displaying all of these in a dialog may not be user-friendly.
+- The custom content may not fit in the dialog.
+
+In such cases, the UI5 Antares library has the capability to generate a [sap.uxap.ObjectPageLayout][OBJECT_PAGE_URL] instead of a [sap.m.Dialog][DIALOG_URL], which may be a more suitable option.
+
+!!! info
+
+	All features of the dialog generation process are also available for use in the object page generation process.
+
+The Entry classes default setting is to generate an object page with a single section containing all the properties of an `EntitySet`. The default title for this section is derived from the [Form Title](#form-title). If you wish to change the title of this section, please use the **setDefaultGroupTitle()** method.
+
+!!! note
+
+	Please note that any custom content added via the [addCustomContent()](#custom-content) or [addContentFromFragment()](#custom-content-from-fragment) methods will be added to a distinct section with a default title. The default title for the custom content is **Custom Contents**, but this can be modified using the **setCustomContentSectionTitle()** method.
+
+To generate an object page for the `EntitySet`, the **setDisplayObjectPage()** method can be utilized. The second parameter of this method is the **target name** of the current view. This information is required by the library to redirect the end user back to the view where the object page was called. The target information can be obtained from the application's **manifest.json** file. To find the target name of the current page, please refer to the **"sap.ui5"."routing"."targets"** section in the **manifest.json** file.
+
+!!! danger "Attention"
+
+	- Please note that object page generation is only available when the SAPUI5 application has a [router][ROUTER_INFO_URL] initialized in the UI Component (Component.js). For your convenience, the UI5 Antares library uses the router of the application and does not initialize a new router instance.
+
+	- The UI5 Antares library does not modify the hash when displaying the generated object page. Instead, a new target, designated as **UI5AntaresObjectPageTarget**, is created through the application's router. This target is then displayed in real-time.
+
+!!! example
+
+	Please refer to the example below, which illustrates the use of a target named **MyTarget** in the application's **manifest.json** file.
+
+``` json title="manifest.json" linenums="1" hl_lines="18-24"
+{
+  "sap.app": {
+    ...
+  },
+  "sap.ui": {
+    ...
+  },
+  "sap.ui5": {
+    ...
+    "routing": {
+      "config": {
+        ...
+      },
+      "routes": [
+        ...
+      ],
+      "targets": {
+        "MyTarget": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": "true",
+          "viewId": "MyViewId",
+          "viewName": "MyViewName"
+        },
+        ...
+      }
+    }
+  }
+}
+```
+
+=== "Setter (setDisplayObjectPage)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>display</td>
+	      <td><code>boolean</code></td>
+	      <td>Yes</td>
+	      <td>If set to <strong>true</strong>, the library will generate an object page instead of a dialog</td>
+	    </tr>
+	    <tr>
+	      <td>fromTarget</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The target name of the view to where the end user should be redirected after finishing the process on the generated object page</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getDisplayObjectPage)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><code>boolean</code></td>
+	      <td>Returns all the values that were set using the <strong>setDisplayObjectPage()</strong> method. Default value is <strong>false</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products**. Instead of using a dialog for the creation process, we would prefer to have an object page.
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 17 20"
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public onCreateProduct() {
+	    // initialize
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // set the default section title
+	    entry.setDefaultGroupTitle("My Default Section");
+
+	    // activate the object page with the target
+	    entry.setDisplayObjectPage(true, "MyCurrentViewTarget");
+
+	    // call the object page
+	    entry.createNewEntry();
+	  }
+	
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 21 24"
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          // initialize
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // set the default section title
+	          entry.setDefaultGroupTitle("My Default Section");          
+
+	          // activate the object page with the target
+	          entry.setDisplayObjectPage(true, "MyCurrentViewTarget");
+
+	          // call the object page
+	          entry.createNewEntry(); 
+	        }
+
+	      });
+
+	    });
+	```
+
+The generated object page with the default values will be similar in appearance to the following example.
+
+![Object Page](./images/create_entry/object_page_1.png)
+
+### Sections
+
+To add sections to the generated object page, please utilize the [Form Grouping](#form-grouping) feature.
+
+### Header Title
+
+The title in the generated object page is derived from the [Form Title](#form-title) feature.
+
+### Header Label
+
+[AVATAR_URL]: https://sapui5.hana.ondemand.com/#/api/sap.m.Avatar
+
+The label displayed on the right side of the [sap.m.Avatar][AVATAR_URL] can be modified using the **setObjectPageHeaderLabel()** method. Please find the default values for the header label below.
+
+#### Default Values
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#entry-create">Entry Create</a></td>
+      <td>You can create a new ${this.entityName} on this page.</td>
+    </tr>
+    <tr>
+      <td><a href="../entry_update">Entry Update</a></td>
+      <td>You can update ${this.entityName} on this page.</td>
+    </tr>
+    <tr>
+      <td><a href="../entry-delete">Entry Delete</a></td>
+      <td>You can delete ${this.entityName} on this page.</td>
+    </tr>
+    <tr>
+      <td><a href="../entry-read">Entry Read</a></td>
+      <td>You can display ${this.entityName} on this page.</td>
+    </tr>
+  </tbody>
+</table>
+
+=== "Setter (setObjectPageHeaderLabel)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>label</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The label which is displayed on the right side of the <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Avatar">sap.m.Avatar</a></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getObjectPageHeaderLabel)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><code>boolean</code></td>
+	      <td>Returns all the values that were set using the <strong>setObjectPageHeaderLabel()</strong> method. Default value differs based on the Entry class</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+**Example**
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 23"
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public onCreateProduct() {
+	    // initialize
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // set the header title
+	    entry.setFormTitle("My Header Title");
+
+	    // set the default section title
+	    entry.setDefaultGroupTitle("My Default Section");
+
+	    // set the header label
+	    entry.setObjectPageHeaderLabel("My Header Label");
+
+	    // activate the object page with the target
+	    entry.setDisplayObjectPage(true, "MyCurrentViewTarget");
+
+	    // call the object page
+	    entry.createNewEntry();
+	  }
+	
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 27"
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          // initialize
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // set the header title
+	          entry.setFormTitle("My Header Title");
+
+	          // set the default section title
+	          entry.setDefaultGroupTitle("My Default Section");
+
+	          // set the header label
+	          entry.setObjectPageHeaderLabel("My Header Label");
+
+	          // activate the object page with the target
+	          entry.setDisplayObjectPage(true, "MyCurrentViewTarget");
+
+	          // call the object page
+	          entry.createNewEntry();
+	        }
+
+	      });
+
+	    });
+	```
+
+![Object Page](./images/create_entry/object_page_2.png)
+
+### Header Avatar
+
+To modify the src attribute of the [sap.m.Avatar][AVATAR_URL] displayed on the object page, the **setObjectPageAvatarSrc()** method can be utilized. The default values for the avatar are provided below for your reference.
+
+#### Default Values
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Default Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#entry-create">Entry Create</a></td>
+      <td>sap-icon://add</td>
+    </tr>
+    <tr>
+      <td><a href="../entry-update">Entry Update</a></td>
+      <td>sap-icon://edit</td>
+    </tr>
+    <tr>
+      <td><a href="../entry-delete">Entry Delete</a></td>
+      <td>sap-icon://delete</td>
+    </tr>
+    <tr>
+      <td><a href="../entry-read">Entry Read</a></td>
+      <td>sap-icon://display</td>
+    </tr>
+  </tbody>
+</table>
+
+=== "Setter (setObjectPageAvatarSrc)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>src</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The src attribute of the <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Avatar">sap.m.Avatar</a></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getObjectPageAvatarSrc)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>string</td>
+	      <td>Returns all the values that were set using the <strong>setObjectPageAvatarSrc()</strong> method. Default value differs based on the Entry class</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+**Example**
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 17"
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public onCreateProduct() {
+	    // initialize
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // set the avatar src
+	    entry.setObjectPageAvatarSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png");
+
+	    // call the object page
+	    entry.createNewEntry();
+	  }
+	
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 21"
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL" // Import the class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          // initialize
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // set the avatar src
+	          entry.setObjectPageAvatarSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png");
+
+	          // call the object page
+	          entry.createNewEntry();
+	        }
+
+	      });
+
+	    });
+	```
+
+![Object Page](./images/create_entry/object_page_3.png)
+
+### Custom Content Section Title
+
+To modify the default title for the custom content on the generated object page, the **setCustomContentSectionTitle()** method can be utilized.
+
+=== "Setter (setCustomContentSectionTitle)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>title</td>
+	      <td><code>string</code></td>
+	      <td>Yes</td>
+	      <td>The title of the section that is generated for the custom contents</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getCustomContentSectionTitle)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>string</td>
+	      <td>Returns all the values that were set using the <strong>setCustomContentSectionTitle()</strong> method. Default value is <strong>Custom Contents</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+## Custom Control
+
+By default, the UI5 Antares library creates [sap.ui.comp.smartfield.SmartField][SMARTFIELD_URL] when the form type is **SMART** or [sap.m.Input][101], [sap.m.Date The following components are generated: Picker, DateTimePicker, and CheckBox, depending on the Edm Type of the properties when the form type is Simple.
+
+The UI5 Antares library generates the UI components shown below, depending on the [Form Type](#form-type).
+
+1) **SIMPLE:** [sap.m.Input][INPUT_URL], [sap.m.DatePicker][DATEPICKER_URL], [sap.m.DateTimePicker][DATETIMEPICKER_URL], [sap.m.CheckBox][CHECKBOX_URL] depending on the `Edm.Type` of the `EntitySet` property.
+
+2) **SMART:** [sap.ui.comp.smartfield.SmartField][SMARTFIELD_URL]
+
+However, you may wish to consider implementing a different UI control for the properties of your `EntitySet`. In such cases, the **Custom Control** class allows the addition of a variety of user interface controls (such as the [sap.m.Slider](https://sapui5.hana.ondemand.com/#/api/sap.m.Slider)) for the properties of the `EntitySet`, as defined in the [constructor](#constructor).
+
+!!! danger "Attention"
+
+	Please note that a custom control can only be added for the properties of an `EntitySet` specified in the [constructor](#constructor).
+
+During the form generation process, the UI5 Antares library initiates a search for **custom controls** to be utilized for the properties of the `EntitySet`. In the event that no custom control is identified, the library generates a UI control based on the [Form Type](#form-type) and `Edm.Type`.
+
+### Constructor
+
+In order to utilise the **CustomControlCL** class, it is necessary to initialise an object from that class.
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>control</td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.Control">Control</a></td>
+      <td>Yes</td>
+      <td></td>
+      <td>The UI Control to add into the auto-generated form</td>
+    </tr>
+    <tr>
+      <td>propertyName</td>
+      <td><code>string</code></td>
+      <td>Yes</td>
+      <td></td>
+      <td>This is the property of the <code>EntitySet</code> that is set in the <a href="#constructor">constructor</a> for which the custom control will be added.</td>
+    </tr>
+    <tr>
+      <td>validator?</td>
+      <td><a href="#validation-logic">ValidationLogicCL</a></td>
+      <td>No</td>
+      <td></td>
+      <td>The validation object</td>
+    </tr>
+  </tbody>
+</table>
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products** with the following properties: `ID`, `name`, `description`, `price`, and `currency`. We wish to add a [sap.m.ComboBox][COMBOBOX_URL] with some predefined items for the `currency` property.
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 3 4 5 19-26 29 32" 
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import CustomControlCL from "ui5/antares/ui/CustomControlCL"; // Import the Custom Control Class
+	import ComboBox from "sap/m/ComboBox"; // Import the ComboBox
+	import Item from "sap/ui/core/Item"; // Import the Item for ComboBox items
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // Create a custom control which is ComboBox in this sample
+	    const currencyComboBox = new ComboBox({
+	        selectedKey: "{currency}", // Do not forget to add the path of the property
+	        items: [
+	            new Item({ key: "EUR", text: "Euro" }),
+	            new Item({ key: "USD", text: "US Dollar" }),
+	            new Item({ key: "TRY", text: "Turkish Lira" }),
+	        ]
+	    });
+
+	    // Create an object from the CustomControlCL class with the UI Control and property name
+	    const currencyControl = new CustomControlCL(currencyComboBox, "currency");
+
+	    // Add the custom control
+	    entry.addCustomControl(currencyControl);
+
+	    entry.createNewEntry();
+	  }
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 4 5 6 23-30 33 36" 
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "ui5/antares/ui/CustomControlCL", // Import the Custom Control Class
+	    "sap/m/ComboBox", // Import the ComboBox
+	    "sap/ui/core/Item" // Import the Item for ComboBox items
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, CustomControlCL, ComboBox, Item) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Create a custom control which is ComboBox in this sample
+	          const currencyComboBox = new ComboBox({
+	              selectedKey: "{currency}", // Do not forget to add the path of the property
+	              items: [
+	                  new Item({ key: "EUR", text: "Euro" }),
+	                  new Item({ key: "USD", text: "US Dollar" }),
+	                  new Item({ key: "TRY", text: "Turkish Lira" }),
+	              ]
+	          });
+
+	          // Create an object from the CustomControlCL class with the UI Control and property name
+	          const currencyControl = new CustomControlCL(currencyComboBox, "currency");
+
+	          // Add the custom control
+	          entry.addCustomControl(currencyControl);
+
+	          entry.createNewEntry();
+	        }
+	      });
+
+	    });
+	```
+
+![Custom Control](./images/create_entry/custom_control_1.png)
+
+### Validation
+
+Furthermore, the custom controls can be configured to execute a [Validation Logic](#validation-logic) before the transient entity is submitted.
+
+!!! warning
+
+	As the addition of a custom UI control to the form is unpredictable, the library is unable to perform any validation or mandatory checks. Instead, this must be done **manually** using the [Validator Function](#validation-with-validator-function).
+
+The UI5 Antares library passes the custom UI control, which has been added, as a parameter to the validator function.
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products** with the following properties: `ID`, `name`, `description`, `price`, and `currency`. We wish to add a [sap.m.ComboBox][COMBOBOX_URL] with some predefined items for the `currency` property.
+
+	It is also important to ensure that the end user does not leave the `currency` field blank and that they make a selection in this field.
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 3 4 5 6 7 31-36 39 48-54" 
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import CustomControlCL from "ui5/antares/ui/CustomControlCL"; // Import the Custom Control Class
+	import ValidationLogicCL from "ui5/antares/ui/ValidationLogicCL"; // Import the ValidationLogicCL class
+	import { ValidatorValueParameter } from "ui5/antares/types/ui/validation"; // Import the validator function parameter type
+	import ComboBox from "sap/m/ComboBox"; // Import the ComboBox
+	import Item from "sap/ui/core/Item"; // Import the Item for ComboBox items
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // Create a custom control which is ComboBox in this sample
+	    const currencyComboBox = new ComboBox({
+	        selectedKey: "{currency}", // Do not forget to add the path of the property
+	        items: [
+	            new Item({ key: "EUR", text: "Euro" }),
+	            new Item({ key: "USD", text: "US Dollar" }),
+	            new Item({ key: "TRY", text: "Turkish Lira" }),
+	        ]
+	    });
+
+	    // Create the validation object for the custom control
+	    const currencyValidation = new ValidationLogicCL({
+	      propertyName: "currency", // Currency property of the Products
+	      validator: this.validateCurrency,
+	      listener: this,
+	      message: "The currency field is mandatory"        
+	    });
+
+	    // Create an object from the CustomControlCL class with the UI Control, property name and validation object
+	    const currencyControl = new CustomControlCL(currencyComboBox, "currency", currencyValidation);
+
+	    // Add the custom control
+	    entry.addCustomControl(currencyControl);
+
+	    entry.createNewEntry();
+	  }
+
+	  // UI5 Antares will pass the added combobox back to the validator function
+	  public validateCurrency (control: ValidatorValueParameter): boolean {
+	    if (!(control as ComboBox).getSelectedKey()) {
+	      return false; // Validation is unsuccessful
+	    }
+
+	    return true; // Validation is successful
+	  }
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 4 5 6 7 34-39 42 51-57" 
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "ui5/antares/ui/CustomControlCL", // Import the Custom Control Class
+	    "ui5/antares/ui/ValidationLogicCL", // Import the ValidationLogicCL class
+	    "sap/m/ComboBox", // Import the ComboBox
+	    "sap/ui/core/Item" // Import the Item for ComboBox items
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, CustomControlCL, ValidationLogicCL, ComboBox, Item) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Create a custom control which is ComboBox in this sample
+	          const currencyComboBox = new ComboBox({
+	              selectedKey: "{currency}", // Do not forget to add the path of the property
+	              items: [
+	                  new Item({ key: "EUR", text: "Euro" }),
+	                  new Item({ key: "USD", text: "US Dollar" }),
+	                  new Item({ key: "TRY", text: "Turkish Lira" }),
+	              ]
+	          });
+
+	          // Create the validation object for the custom control
+	          const currencyValidation = new ValidationLogicCL({
+	            propertyName: "currency", // Currency property of the Products
+	            validator: this._validateCurrency,
+	            listener: this,
+	            message: "The currency field is mandatory"        
+	          });
+
+	          // Create an object from the CustomControlCL class with the UI Control, property name and validation object
+	          const currencyControl = new CustomControlCL(currencyComboBox, "currency", currencyValidation);
+
+	          // Add the custom control
+	          entry.addCustomControl(currencyControl);
+
+	          entry.createNewEntry();
+	        },
+
+	        // UI5 Antares will pass the added combobox back to the validator function
+	        _validateCurrency: function (control) {
+	          if (!control.getSelectedKey()) {
+	            return false; // Validation is unsuccessful
+	          }
+
+	          return true; // Validation is successful          
+	        }
+	      });
+
+	    });
+	```
+
+### Custom Control From Fragment
+
+As an alternative, custom controls can be added to the auto-generated form by loading the UI controls from a custom fragment created in the application files.
+
+!!! tip
+
+	This approach allows for the addition of multiple controls simultaneously, eliminating the need to create UI controls in the controller. Custom controls can be organized in the `.fragment.xml` files
+
+!!! danger "Attention"
+
+	It is a requirement that a [custom data][CUSTOM_DATA_URL] with the **UI5AntaresEntityPropertyName** key be added to each UI control within the specified fragment. The value of the **UI5AntaresEntityPropertyName** key should be the **property name** of the `EntitySet` for which the custom control is added. Otherwise, the UI5 Antares library will be unable to identify for which property the UI control is being added.
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products** with the following properties: `ID`, `name`, `description`, `price`, and `currency`. We wish to add a [sap.m.ComboBox][COMBOBOX_URL] with some predefined items for the `currency` property and a [sap.m.Slider](https://sapui5.hana.ondemand.com/#/api/sap.m.Slider) for the `price` property.
+
+Firstly, a file with `.fragment.xml` extension should be created in the application files. The UI controls will be placed into this file.
+
+``` xml title="CustomControls.fragment.xml" linenums="1" hl_lines="4 7 26" 
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+    <ComboBox
+        app:UI5AntaresEntityPropertyName="currency"
+        selectedKey="{currency}"
+    >
+        <items>
+            <core:Item
+                key="EUR"
+                text="Euro"
+            />
+            <core:Item
+                key="USD"
+                text="US Dollar"
+            />
+            <core:Item
+                key="TRY"
+                text="Turkish Lira"
+            />
+        </items>
+    </ComboBox>
+    <Slider
+        app:UI5AntaresEntityPropertyName="price"
+        width="100%"
+        min="1000"
+        max="100000"
+        showAdvancedTooltip="true"
+        showHandleTooltip="true"
+        inputsAsTooltips="true"
+        enableTickmarks="true"
+        step="1000"
+        class="sapUiMediumMarginBottom"
+        value="{price}"
+    />
+</core:FragmentDefinition>
+```
+
+![Custom Control From Fragment](./images/create_entry/custom_control_fragment_1.png)
+
+[FRAGMENT_CLASS_URL]: ./fragment_class.md
+
+Secondly, an object from the [FragmentCL][FRAGMENT_CLASS_URL] should be instantiated with the controller and fragment path parameters.
+
+!!! danger "Attention"
+
+	Please be aware that the **addControlFromFragment()** method is **asynchronous** and must be awaited.
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 3 17 20" 
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import FragmentCL from "ui5/antares/ui/FragmentCL"; // Import the Fragment class
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // Create an object from the FragmentCL class with the controller and fragment path parameters.
+	    const fragment = new FragmentCL(this, "your.apps.namespace.path.to.FragmentFileName");
+
+	    // Add the controls from the fragment. It is an asynchronous method and must be awaited.
+	    await entry.addControlFromFragment(fragment);
+
+	    entry.createNewEntry();
+	  }
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 4 21 24" 
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "ui5/antares/ui/FragmentCL" // Import the Fragment class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, FragmentCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Create an object from the FragmentCL class with the controller and fragment path parameters.
+	          const fragment = new FragmentCL(this, "your.apps.namespace.path.to.FragmentFileName");
+
+	          // Add the controls from the fragment. It is an asynchronous method and must be awaited.
+	          await entry.addControlFromFragment(fragment);
+
+	          entry.createNewEntry();
+	        }
+	      });
+
+	    });
+	```
+
+![Custom Control From Fragment](./images/create_entry/custom_control_fragment_2.png)
+
+#### Validation
+
+Furthermore, the custom controls loaded from a fragment can be configured to execute a [Validation Logic](#validation-logic) before the transient entity is submitted.
+
+!!! warning
+
+	As the addition of a custom UI control to the form is unpredictable, the library is unable to perform any validation or mandatory checks. Instead, this must be done **manually** using the [Validator Function](#validation-with-validator-function).
+
+The UI5 Antares library passes the custom UI control, which has been added, as a parameter to the validator function.
+
+!!! danger "Attention"
+
+	It is a requirement that a [custom data][CUSTOM_DATA_URL] with the **UI5AntaresValidationLogic** key be added to each UI control within the specified fragment. The value of the **UI5AntaresValidationLogic** key should be the **name** of the [validator function](#validation-with-validator-function) in the controller.
+
+!!! tip
+
+	The default message displayed by the end user when the validation is unsuccessful can be modified by setting a [custom data][CUSTOM_DATA_URL] with the key **UI5AntaresValidationMessage**. The value of the **UI5AntaresValidationMessage** can be either the message itself or the i18n binding.
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products** with the following properties: `ID`, `name`, `description`, `price`, and `currency`. We wish to add a [sap.m.ComboBox][COMBOBOX_URL] with some predefined items for the `currency` property and a [sap.m.Slider](https://sapui5.hana.ondemand.com/#/api/sap.m.Slider) for the `price` property.
+
+	We also would like to add validation and validation messages to the custom controls.
+
+Firstly, a file with `.fragment.xml` extension should be created in the application files. The UI controls will be placed into this file.
+
+``` xml title="CustomControls.fragment.xml" linenums="1" hl_lines="4 7 8 9 28 29 30" 
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+    <ComboBox
+        app:UI5AntaresEntityPropertyName="currency"
+        app:UI5AntaresValidationLogic="onValidateCurrency"
+        app:UI5AntaresValidationMessage="{i18n>currencyValidationFailed}"
+        selectedKey="{currency}"
+    >
+        <items>
+            <core:Item
+                key="EUR"
+                text="Euro"
+            />
+            <core:Item
+                key="USD"
+                text="US Dollar"
+            />
+            <core:Item
+                key="TRY"
+                text="Turkish Lira"
+            />
+        </items>
+    </ComboBox>
+    <Slider
+        app:UI5AntaresEntityPropertyName="price"
+        app:UI5AntaresValidationLogic="onValidatePrice"
+        app:UI5AntaresValidationMessage="The price must be bigger than 15000"
+        width="100%"
+        min="1000"
+        max="100000"
+        showAdvancedTooltip="true"
+        showHandleTooltip="true"
+        inputsAsTooltips="true"
+        enableTickmarks="true"
+        step="1000"
+        class="sapUiMediumMarginBottom"
+        value="{price}"
+    />
+</core:FragmentDefinition>
+```
+
+![Custom Control From Fragment](./images/create_entry/custom_control_fragment_3.png)
+
+Secondly, an object from the [FragmentCL][FRAGMENT_CLASS_URL] should be instantiated with the controller and fragment path parameters.
+
+!!! danger "Attention"
+
+	Please be aware that the **addControlFromFragment()** method is **asynchronous** and must be awaited.
+
+=== "TypeScript"
+
+	``` ts linenums="1" hl_lines="2 3 4 5 6 18 23 29-35 38-44" 
+	import Controller from "sap/ui/core/mvc/Controller";
+	import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+	import FragmentCL from "ui5/antares/ui/FragmentCL"; // Import the Fragment class
+	import { ValidatorValueParameter } from "ui5/antares/types/ui/validation"; // Import the validator function parameter type
+	import ComboBox from "sap/m/ComboBox";
+	import Slider from "sap/m/Slider";
+
+	/**
+	 * @namespace your.apps.namespace
+	 */
+	export default class YourController extends Controller {
+	  public onInit() {
+
+	  }
+
+	  public async onCreateProduct() {
+	    const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+	    // Create an object from the FragmentCL class with the controller and fragment path parameters.
+	    const fragment = new FragmentCL(this, "your.apps.namespace.path.to.FragmentFileName");
+
+	    // Add the controls from the fragment. It is an asynchronous method and must be awaited.
+	    await entry.addControlFromFragment(fragment);
+
+	    entry.createNewEntry();
+	  }
+
+	  // The name of the validator function must match to the custom data UI5AntaresValidationLogic defined in the .fragment.xml file
+	  public onValidateCurrency (control: ValidatorValueParameter): boolean {
+	    if (!(control as ComboBox).getSelectedKey()) {
+	      return false; // Validation is unsuccessful
+	    }
+
+	    return true; // Validation is successful
+	  }
+
+	  // The name of the validator function must match to the custom data UI5AntaresValidationLogic defined in the .fragment.xml file
+	  public onValidatePrice (control: ValidatorValueParameter): boolean {
+	    if ((control as Slider).getValue() <= 15000) {
+	      return false; // Validation is unsuccessful
+	    }
+
+	    return true; // Validation is successful
+	  }
+	}
+
+	interface IProducts {
+	  ID: string;
+	  name: string;
+	  description: string;
+	  brand: string;
+	  price: number;
+	  currency: string;
+	  quantityInStock: number;
+	  categoryID: string;
+	  supplierID: string;
+	}
+	```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 4 21 24 30-36 39-45"
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "ui5/antares/ui/FragmentCL" // Import the Fragment class
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, FragmentCL) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Create an object from the FragmentCL class with the controller and fragment path parameters.
+	          const fragment = new FragmentCL(this, "your.apps.namespace.path.to.FragmentFileName");
+
+	          // Add the controls from the fragment. It is an asynchronous method and must be awaited.
+	          await entry.addControlFromFragment(fragment);
+
+	          entry.createNewEntry();
+	        },
+
+	        // The name of the validator function must match to the custom data UI5AntaresValidationLogic defined in the .fragment.xml file
+	        onValidateCurrency: function (control) {
+	          if (!control.getSelectedKey()) {
+	            return false; // Validation is unsuccessful
+	          }
+
+	          return true; // Validation is successful
+	        },
+
+	        // The name of the validator function must match to the custom data UI5AntaresValidationLogic defined in the .fragment.xml file
+	        onValidatePrice: function (control) {
+	          if (control.getValue() <= 15000) {
+	            return false; // Validation is unsuccessful
+	          }
+
+	          return true; // Validation is successful
+	        }        
+	      });
+
+	    });
+	```
+
+## Custom Content
+
+### Custom Content From Fragment
