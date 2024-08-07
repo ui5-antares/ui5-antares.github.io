@@ -39,6 +39,7 @@ nav:
   - Value Help: value_help.md
   - Fragment Class: fragment_class.md
   - Promisified OData V2 Classes: odata_classes.md
+  - Change Log: change_log.md
 
 extra:
   social:

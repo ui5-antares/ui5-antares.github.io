@@ -5555,4 +5555,645 @@ Secondly, an object from the [FragmentCL][FRAGMENT_CLASS_URL] should be instanti
 
 ## Custom Content
 
+It is possible to add any UI control to the dialog below the auto-generated form. 
+
+!!! info
+
+	It should be noted that there is a distinction between a [Custom Control](#custom-control) and **Custom Content**. A [Custom Control](#custom-control) can only be added for the properties of the `EntitySet` specified in the [constructor](#constructor), whereas a **custom content** is a UI control that is required on the dialog but is not included in the transient entity.
+
+!!! danger "Attention"
+
+	Please be advised that custom content is not included in the [Validation Logic](#validation-logic) process. The UI5 Antares is designed solely for the addition of custom content to the dialog. However, it is important to note that the custom content must be managed **manually**.
+
+!!! example
+
+	To illustrate, a custom content could be a [sap.m.Image](https://sapui5.hana.ondemand.com/#/api/sap.m.Image), a [sap.m.upload.UploadSet](https://sapui5.hana.ondemand.com/#/api/sap.m.upload.UploadSet), or any other UI control that is necessary for the functionality of the dialog.
+
+To add a custom content to the dialog, the **addCustomContent()** method can be utilized.
+
+=== "Setter (addCustomContent)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Parameter</th>
+	      <th>Type</th>
+	      <th>Mandatory</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td>content</td>
+	      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.Control">Control</a></td>
+	      <td>Yes</td>
+	      <td>The UI control to add into the dialog</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+=== "Getter (getCustomContents)"
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Returns</th>
+	      <th>Description</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.Control">Control[]</a></td>
+	      <td>Returns all the UI controls that were added using <strong>addCustomContent()</strong> method. Default value is <strong>[]</strong></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+!!! example
+
+	Let us consider an `EntitySet` named **Products** and we wish to add an [sap.m.upload.UploadSet](https://sapui5.hana.ondemand.com/#/api/sap.m.upload.UploadSet) to the dialog that the UI5 Antares will generate.
+
+=== "TypeScript"
+
+    ``` ts linenums="1" hl_lines="2 3 17 18 21"
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    import UploadSet from "sap/m/upload/UploadSet"; // Import the Upload Set
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+    
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL(this, "Products");
+
+        // Create the custom content
+        const upload = new UploadSet();
+        upload.addStyleClass("sapUiSmallMargin");
+
+        // Add the custom content
+        entry.addCustomContent(upload);
+
+        entry.createNewEntry(); 
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+	``` js linenums="1" hl_lines="3 4 21 22 25"
+	sap.ui.define([
+	    "sap/ui/core/mvc/Controller",
+	    "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+	    "sap/m/upload/UploadSet" // Import the Upload Set
+	], 
+	    /**
+	     * @param {typeof sap.ui.core.mvc.Controller} Controller
+	     */
+	    function (Controller, EntryCreateCL, UploadSet) {
+	      "use strict";
+
+	      return Controller.extend("your.apps.namespace.YourController", {
+	        onInit: function () {
+
+	        },
+
+	        onCreateProduct: async function () {
+	          const entry = new EntryCreateCL(this, "Products");
+
+	          // Create the custom content
+	          const upload = new UploadSet();
+	          upload.addStyleClass("sapUiSmallMargin");
+
+	          // Add the custom content
+	          entry.addCustomContent(upload);
+
+	          entry.createNewEntry(); 
+	        }
+	      });
+
+	    });
+	```
+
+![Custom Content](./images/create_entry/custom_content_1.png)
+
 ### Custom Content From Fragment
+
+As an alternative method, you can also add custom content to the dialog by loading the UI controls from a custom fragment created in your application files.
+
+!!! tip
+
+	This approach allows for the addition of multiple contents simultaneously, eliminating the need to create UI controls in the controller. Custom contents can be organized in the `.fragment.xml` files
+
+!!! example
+
+    Let us consider an `EntitySet` named **Products** and we wish to add an [sap.m.Image](https://sapui5.hana.ondemand.com/#/api/sap.m.Image) and an [sap.m.RadioButtonGroup](https://sapui5.hana.ondemand.com/#/api/sap.m.RadioButtonGroup) loaded from a fragment to the dialog that UI5 Antares will generate.
+
+Firstly, a file with `.fragment.xml` extension should be created in the application files. The UI controls will be placed into this file.
+
+``` xml title="CustomContents.fragment.xml"
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <VBox>
+        <FlexBox justifyContent="Center">
+            <Image
+                class="sapUiSmallMargin"
+                src="./img/antares.jpg"
+                width="10rem"
+            />
+        </FlexBox>
+        <RadioButtonGroup selectedIndex="0">
+            <buttons>
+                <RadioButton text="Option 1" />
+                <RadioButton text="Option 2" />
+                <RadioButton text="Option 3" />
+            </buttons>
+        </RadioButtonGroup>
+    </VBox>
+</core:FragmentDefinition>
+```
+
+![Custom Content From Fragment](./images/create_entry/custom_content_fragment_1.png)
+
+Secondly, an object from the [FragmentCL][FRAGMENT_CLASS_URL] should be instantiated with the controller and fragment path parameters.
+
+!!! danger "Attention"
+
+	Please be aware that the **addContentFromFragment()** method is **asynchronous** and must be awaited.
+
+=== "TypeScript"
+
+    ``` ts linenums="1" hl_lines="2 3 17 20"
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    import FragmentCL from "ui5/antares/ui/FragmentCL"; // Import the Fragment class
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      public onInit() {
+
+      }
+
+      public async onCreateProduct() {
+        const entry = new EntryCreateCL<IProducts>(this, "Products");
+
+        // Create an object from the FragmentCL class with the controller and fragment path parameters.
+        const fragment = new FragmentCL(this, "your.apps.namespace.path.to.FragmentFileName");
+
+        // Add the controls from the fragment. It is an asynchronous method and must be awaited.
+        await entry.addContentFromFragment(fragment);
+
+        entry.createNewEntry();
+      }
+    }
+
+    interface IProducts {
+      ID: string;
+      name: string;
+      description: string;
+      brand: string;
+      price: number;
+      currency: string;
+      quantityInStock: number;
+      categoryID: string;
+      supplierID: string;
+    }
+    ```
+
+=== "JavaScript"
+
+    ``` js linenums="1" hl_lines="3 4 21 24"
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+        "ui5/antares/ui/FragmentCL" // Import the Fragment class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL, FragmentCL) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              const entry = new EntryCreateCL(this, "Products");
+
+              // Create an object from the FragmentCL class with the controller and fragment path parameters.
+              const fragment = new FragmentCL(this, "your.apps.namespace.path.to.FragmentFileName");
+
+              // Add the controls from the fragment. It is an asynchronous method and must be awaited.
+              await entry.addContentFromFragment(fragment);
+
+              entry.createNewEntry();
+            }
+          });
+
+        });
+    ```
+
+![Custom Content From Fragment](./images/create_entry/custom_content_fragment_2.png)
+
+## Custom Fragment
+
+If you do not wish to use the library-generated form and content, an alternative option is to use your own fragment and dialog with any desired content. The UI5 Antares library will create a transient entity and open the dialog loaded from your fragment. Additionally, the transient entity will be bound to the dialog.
+
+!!! danger "Attention"
+
+    Please note that certain features of the UI5 Antares library are only accessible when the dialog generation is handled by the library itself. If you wish to utilise a custom fragment, you will be required to perform certain steps manually.
+
+1) The [Entry Create](#entry-create) and [Entry Update][ENTRY_UPDATE_URL] classes provide a public method named **submit()**, which must be called **manually** in order to submit the transient entity.
+
+2) In the event that a transient entity should not be submitted and the dialog should be closed and destroyed, the **reset()** method, which is provided by the Entry classes, must be called.
+
+!!! tip
+
+    The **submit(resetAllOnFail:boolean = false)** method accepts an optional parameter with a default value of false. This parameter indicates whether all transient entities in the OData V2 Model should be reset or only the current context. If you wish to **reset all** transient entities, please set this parameter to **true**. If you only wish to reset the current transient entity, there is no need to set this parameter. 
+
+!!! tip
+
+    Please be advised that the fragment to be loaded must contain a [sap.m.Dialog][DIALOG_URL] and that all UI controls must be placed as the content of the dialog.
+
+!!! danger "Attention"
+
+    It should be noted that only a limited number of features of the UI5 Antares library can be utilized with a custom fragment.
+
+### Supported Features
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#mandatory-properties">Mandatory Properties</a></td>
+      <td>By default, UI5 Antares performs a mandatory check for the properties with <strong>Nullable="false"</strong> attribute and the properties defined using <strong>setMandatoryProperties()</strong> method. However, this feature can be deactived using <a href="#auto-mandatory-check">setAutoMandatoryCheck()</a> method</td>
+    </tr>
+    <tr>
+      <td><a href="#mandatory-error-message">Mandatory Error Message</a></td>
+      <td>The default message that is displayed when the mandatory check is unsuccessful can be modified</td>
+    </tr>
+    <tr>
+      <td><a href="#attach-submit-completed">Attach Submit Completed</a></td>
+      <td>It is possible to create a function that will be called after the transient entity has been submitted successfully</td>
+    </tr>
+    <tr>
+      <td><a href="#attach-submit-failed">Attach Submit Failed</a></td>
+      <td>It is possible to create a function that will be called if the transient entity submission fails</td>
+    </tr>
+    <tr>
+      <td><a href="#properties-with-edmguid-type">Properties with Edm.Guid Type</a></td>
+      <td>By default, UI5 Antares generates random UUID for the <strong>key</strong> properties with Edm.Guid type</td>
+    </tr>
+  </tbody>
+</table>
+
+To use a custom fragment, the **setFragmentPath()** method can be utilized.
+
+=== "Setter (setFragmentPath)"
+
+    <table>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Mandatory</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>fragmentPath</td>
+        <td><code>string</code></td>
+        <td>Yes</td>
+        <td>The path of the fragment that will be loaded by the library</td>
+      </tr>
+      <tr>
+        <td>containsSmartForm?</td>
+        <td><code>boolean</code></td>
+        <td>No</td>
+        <td>It should be set to <strong>true</strong> if the dialog contains a <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartform.SmartForm">Smart Form</a></td>
+      </tr>
+    </table>
+
+=== "Getter (getFragmentPath)"
+
+    <table>
+      <tr>
+        <th>Returns</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>string</code> | <code>undefined</code></td>
+        <td>Returns the fragment path that was set using <strong>getFragmentPath()</strong> method. Default value is <strong>undefined</strong></td>
+      </tr>
+    </table>
+
+!!! example
+
+    Let us assume we are working with an `EntitySet` called **Products**. Rather than having the library generate a form, our goal is to create a custom fragment.
+
+Firstly, a file with `.fragment.xml` extension should be created in the application files. The UI controls will be placed into this file.
+
+``` xml title="MCustomDialog.fragment.xml"
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog title="Create New Product">
+        <form:SimpleForm>
+            <form:content>
+                <Label text="Product ID" />
+                <MaskInput
+                    mask="CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC"
+                    value="{ID}"
+                    placeholderSymbol="_"
+                >
+                    <rules>
+                        <MaskInputRule
+                            maskFormatSymbol="C"
+                            regex="[a-f0-9]"
+                        />
+                    </rules>
+                </MaskInput>
+                <Label text="Name" />
+                <Input value="{name}" />
+                <Label text="Description" />
+                <TextArea
+                    value="{description}"
+                    rows="5"
+                />
+                <Label text="Price" />
+                <Slider
+                    width="100%"
+                    min="1000"
+                    max="100000"
+                    showAdvancedTooltip="true"
+                    showHandleTooltip="true"
+                    inputsAsTooltips="true"
+                    enableTickmarks="true"
+                    step="1000"
+                    class="sapUiMediumMarginBottom"
+                    value="{price}"
+                />
+                <Label text="Currency" />
+                <ComboBox selectedKey="{currency}">
+                    <items>
+                        <core:Item
+                            key="EUR"
+                            text="Euro"
+                        />
+                        <core:Item
+                            key="USD"
+                            text="US Dollar"
+                        />
+                        <core:Item
+                            key="TRY"
+                            text="Turkish Lira"
+                        />
+                    </items>
+                </ComboBox>
+            </form:content>
+        </form:SimpleForm>
+        <beginButton>
+            <Button
+                text="Complete"
+                press="onCompleteProduct"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                text="Close"
+                press="onCloseProductDialog"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
+```
+
+![Custom Fragment](./images/create_entry/custom_fragment_1.png)
+
+Secondly, an object from the [Entry Create](#entry-create) class should be instantiated with the controller and `EntitySet` name.
+
+=== "TypeScript"
+
+    ``` ts linenums="1" hl_lines="2 3 4 12 20 23 26 29 32 36-41 44-47 50-61 64-75"
+    import Controller from "sap/ui/core/mvc/Controller";
+    import EntryCreateCL from "ui5/antares/entry/v2/EntryCreateCL"; // Import the class
+    import ResponseCL from "ui5/antares/entry/v2/ResponseCL"; // Import the ResponseCL class
+    import { ISubmitResponse } from "ui5/antares/types/entry/submit"; // Import the error type
+    import MessageBox from "sap/m/MessageBox";
+
+    /**
+     * @namespace your.apps.namespace
+     */
+    export default class YourController extends Controller {
+      // Class property
+      private productEntry: EntryCreateCL<IProducts>;
+
+      public onInit() {
+
+      }
+
+      public async onCreateProduct () {
+        // Create an object and set it to the class property
+        this.productEntry = new EntryCreateCL<IProducts>(this, "Products");
+
+        // Set the path of the custom fragment
+        this.productEntry.setFragmentPath("your.apps.namespace.path.to.FragmentFileName");
+
+        // Attach submit completed
+        this.productEntry.attachSubmitCompleted(this.productSubmitCompleted, this);
+
+        // Attach submit failed
+        this.productEntry.attachSubmitFailed(this.productSubmitFailed, this);
+
+        // Load the fragment
+        this.productEntry.createNewEntry();
+      }
+
+      // Press event of the begin button in the dialog
+      public onCompleteProduct () {
+        // Do your validation
+
+        // Submit the entity
+        this.productEntry.submit();
+      }
+
+      // Press event of the end button in the dialog
+      public onCloseProductDialog () {
+        // Reset the entity and close the dialog
+        this.productEntry.reset();
+      } 
+
+      // Submit Completed Handler
+      private productSubmitCompleted (response: ResponseCL<IProducts>): void {
+        // Get the status code. Please be aware, it may also be undefined
+        const statusCode = response.getStatusCode();
+
+        // Get the data that was submitted. Please be aware, it may also be undefined
+        const submittedData = response.getResponse();
+
+        if (submittedData) {
+          // Some operations
+          const createdProductID = submittedData.ID;
+        }
+      }
+
+      // Please use the ISubmitResponse type for the ResponseCL generic
+      private productSubmitFailed(response: ResponseCL<ISubmitResponse>): void {
+        // Get the status code. Please be aware, it may also be undefined
+        const statusCode = response.getStatusCode();
+
+        // Get the response. Please be aware, it may also be undefined
+        const reason = response.getResponse();
+
+        // Get the statusText
+        if (reason) {
+          MessageBox.error(reason.statusText || "The product was not created!");
+        }
+      }
+    }
+
+    interface IProducts {
+      ID: string;
+      name: string;
+      description: string;
+      brand: string;
+      price: number;
+      currency: string;
+      quantityInStock: number;
+      categoryID: string;
+      supplierID: string;
+    }
+    ```
+
+=== "JavaScript"
+
+    ``` js linenums="1" hl_lines="3 19 22 25 28 31 35-40 43-46 49-60 63-74"
+    sap.ui.define([
+        "sap/ui/core/mvc/Controller",
+        "ui5/antares/entry/v2/EntryCreateCL", // Import the class
+        "sap/m/MessageBox" // Import the Fragment class
+    ], 
+        /**
+         * @param {typeof sap.ui.core.mvc.Controller} Controller
+         */
+        function (Controller, EntryCreateCL, MessageBox) {
+          "use strict";
+
+          return Controller.extend("your.apps.namespace.YourController", {
+            onInit: function () {
+
+            },
+
+            onCreateProduct: async function () {
+              // Create an object and set it to the class property
+              this.productEntry = new EntryCreateCL(this, "Products");
+
+              // Set the path of the custom fragment
+              this.productEntry.setFragmentPath("your.apps.namespace.path.to.FragmentFileName");
+
+              // Attach submit completed
+              this.productEntry.attachSubmitCompleted(this.productSubmitCompleted, this);
+
+              // Attach submit failed
+              this.productEntry.attachSubmitFailed(this.productSubmitFailed, this);
+
+              // Load the fragment
+              this.productEntry.createNewEntry();
+            },
+
+            // Press event of the begin button in the dialog
+            onCompleteProduct: function () {
+              // Do your validation
+
+              // Submit the entity
+              this.productEntry.submit();
+            },
+
+            // Press event of the end button in the dialog
+            onCloseProductDialog: function () {
+              // Reset the entity and close the dialog
+              this.productEntry.reset();
+            }, 
+
+            // Submit Completed Handler
+            productSubmitCompleted: function (response) {
+              // Get the status code. Please be aware, it may also be undefined
+              const statusCode = response.getStatusCode();
+
+              // Get the data that was submitted. Please be aware, it may also be undefined
+              const submittedData = response.getResponse();
+
+              if (submittedData) {
+                // Some operations
+                const createdProductID = submittedData.ID;
+              }
+            },
+
+            // Submit Failed Handler
+            productSubmitFailed: function (response) {
+              // Get the status code. Please be aware, it may also be undefined
+              const statusCode = response.getStatusCode();
+
+              // Get the response. Please be aware, it may also be undefined
+              const reason = response.getResponse();
+
+              // Get the statusText
+              if (reason) {
+                MessageBox.error(reason.statusText || "The product was not created!");
+              }
+            }   
+          });
+
+        });
+    ```
+
+![Custom Fragment](./images/create_entry/custom_fragment_2.png)
+
+### Auto Mandatory Check
+
+The UI5 Antares library performs a mandatory check for properties with the **Nullable="false"** attribute and those defined using the [setMandatoryProperties()](#mandatory-properties) method by default. However, this feature can be disabled using the **setAutoMandatoryCheck()** method if required.
+
+=== "Setter (setAutoMandatoryCheck)"
+
+    <table>
+      <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Mandatory</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>autoMandatoryCheck</td>
+        <td><code>boolean</code></td>
+        <td>Yes</td>
+        <td>If set to <strong>false</strong>, mandatory check is deactivated</td>
+      </tr>
+    </table>
+
+=== "Getter (getAutoMandatoryCheck)"
+
+    <table>
+      <tr>
+        <th>Returns</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td>Returns the value that was set using <strong>setAutoMandatoryCheck()</strong> method. Default value is <strong>true</strong></td>
+      </tr>
+    </table>

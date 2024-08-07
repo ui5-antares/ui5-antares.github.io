@@ -212,7 +212,7 @@ The table below outlines the currently supported and planned SAPUI5 versions.
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.120.1012</td>
+      <td>1.120.1013</td>
       <td>1.120.1</td>
       <td>Available</td>
     </tr>
