@@ -42,7 +42,10 @@ The UI5 Antares is a custom SAPUI5 library comprising useful classes and methods
 [ENTRY_UPDATE_URL]: ./entry_update.md
 [ENTRY_DELETE_URL]: ./entry_delete.md
 [ENTRY_READ_URL]: ./entry_read.md
-[ODATA_CLASSES_URL]: ./odata_classes.md
+[ODATA_CREATE_URL]: ./odata_create.md
+[ODATA_UPDATE_URL]: ./odata_update.md
+[ODATA_DELETE_URL]: ./odata_delete.md
+[ODATA_READ_URL]: ./odata_read.md
 [FRAGMENT_CLASS_URL]: ./fragment_class.md
 [PLANNED_FEATURES_URL]: #planned-features
 [VALUEHELP_CLASS_URL]: ./value_help.md
@@ -55,7 +58,7 @@ The UI5 Antares library offers a comprehensive set of core classes, as outlined 
 - [Entry Read][ENTRY_READ_URL]
 - [Value Help][VALUEHELP_CLASS_URL]
 - [Fragment Class][FRAGMENT_CLASS_URL]
-- [Promisified OData V2 Classes][ODATA_CLASSES_URL]
+- Promisified OData V2 Classes ([OData Create][ODATA_CREATE_URL], [OData Update][ODATA_UPDATE_URL], [OData Delete][ODATA_DELETE_URL], [OData Read][ODATA_READ_URL])
 
 Please refer to the [Planned Features][PLANNED_FEATURES_URL] section to learn about the features that will be included in the next releases.
 

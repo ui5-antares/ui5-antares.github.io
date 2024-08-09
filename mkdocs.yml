@@ -38,7 +38,11 @@ nav:
   - Entry Read: entry_read.md
   - Value Help: value_help.md
   - Fragment Class: fragment_class.md
-  - Promisified OData V2 Classes: odata_classes.md
+  - Promisified OData V2 Classes: 
+      - OData Create: odata_create.md
+      - OData Update: odata_update.md
+      - OData Delete: odata_delete.md
+      - OData Read: odata_read.md
   - Change Log: change_log.md
 
 extra:
