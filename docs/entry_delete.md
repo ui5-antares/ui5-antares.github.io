@@ -14,7 +14,7 @@ The EntryDeleteCL class is responsible for managing the DELETE operation through
 
 - [sap.m.Dialog][DIALOG_URL] generation with a [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL], or custom content
 - [sap.uxap.ObjectPageLayout][OBJECT_PAGE_URL] generation with a [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL], or custom content
-- Property sorting
+- Property sorting, excluding
 - Label generation for the [SmartForm][SMARTFORM_URL], [SimpleForm][SIMPLEFORM_URL] elements
 - **delete()** handling based on the user interaction
 - Call a fragment and bind the context in case you do not want to use the auto-generated dialog
