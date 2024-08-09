@@ -1,0 +1,2233 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../value_help/">
+      
+      
+        <link rel="next" href="../odata_create/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Fragment Class - UI5 Antares</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fragment-class" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="UI5 Antares" class="md-header__button md-logo" aria-label="UI5 Antares" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UI5 Antares
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fragment Class
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hasanciftci26/ui5-antares" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ui5-antares
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  UI5 Antares
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../entry_create/" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Create
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../entry_update/" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Update
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../entry_delete/" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Delete
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../entry_read/" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Read
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../value_help/" class="md-tabs__link">
+        
+  
+    
+  
+  Value Help
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Fragment Class
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../odata_create/" class="md-tabs__link">
+          
+  
+  Promisified OData V2 Classes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../change_log/" class="md-tabs__link">
+        
+  
+    
+  
+  Change Log
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="UI5 Antares" class="md-nav__button md-logo" aria-label="UI5 Antares" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    UI5 Antares
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hasanciftci26/ui5-antares" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ui5-antares
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI5 Antares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entry_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Create
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entry_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entry_delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Delete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entry_read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Read
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../value_help/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Value Help
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fragment Class
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Fragment Class
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Content
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-dialog-or-popover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Dialog or Popover
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Dialog or Popover">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Async
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close-dialog-or-popover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Close Dialog or Popover
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-fragment-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Fragment Content
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#destroy-fragment-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Destroy Fragment Content
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Promisified OData V2 Classes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Promisified OData V2 Classes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Create
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Delete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Read
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="fragment-class">Fragment Class</h1>
+<p>The UI5 Antares library includes a built-in class (FragmentCL) providing a set of public methods to load the contents of a fragment file (*.fragment.xml) and to open a dialog or a popover.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <a href="../entry_create/#custom-control-from-fragment">Custom Control From Fragment</a> and <a href="../entry_create/#custom-content-from-fragment">Custom Content From Fragment</a> methods of the Entry classes also use the FragmentCL class.</p>
+</div>
+<h2 id="constructor">Constructor</h2>
+<p>In order to utilise the functionality of FragmentCL, it is necessary to initialise the object.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>controller</td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.mvc.Controller">sap.ui.core.mvc.Controller</a></td>
+      <td>Yes</td>
+      <td></td>
+      <td>The controller object (usually <code>this</code> object)</td>
+    </tr>
+    <tr>
+      <td>fragmentPath</td>
+      <td><code>string</code></td>
+      <td>Yes</td>
+      <td></td>
+      <td>The path of the fragment whose content will be loaded or opened</td>
+    </tr>
+    <tr>
+      <td>openByControl?</td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.Control">sap.ui.core.Control</a></td>
+      <td>No</td>
+      <td></td>
+      <td>If the loaded fragment contains a popover, this parameter determines which control the popover opens next to. For example: <a href="https://sapui5.hana.ondemand.com/sdk/#api/sap.m.Button">sap.m.Button</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> and the following content. Our objective is to open the dialog in the controller.</p>
+</div>
+<div class="highlight"><span class="filename">Dialog.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Dialog</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Create New Product&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;form:SimpleForm&gt;</span>
+<span class="w">            </span><span class="nt">&lt;form:content&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Product ID&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;MaskInput</span>
+<span class="w">                    </span><span class="na">mask=</span><span class="s">&quot;CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC&quot;</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{ID}&quot;</span>
+<span class="w">                    </span><span class="na">placeholderSymbol=</span><span class="s">&quot;_&quot;</span>
+<span class="w">                </span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;rules&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;MaskInputRule</span>
+<span class="w">                            </span><span class="na">maskFormatSymbol=</span><span class="s">&quot;C&quot;</span>
+<span class="w">                            </span><span class="na">regex=</span><span class="s">&quot;[a-f0-9]&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/rules&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/MaskInput&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Input</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{name}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;TextArea</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{description}&quot;</span>
+<span class="w">                    </span><span class="na">rows=</span><span class="s">&quot;5&quot;</span>
+<span class="w">                </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Price&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Slider</span>
+<span class="w">                    </span><span class="na">width=</span><span class="s">&quot;100%&quot;</span>
+<span class="w">                    </span><span class="na">min=</span><span class="s">&quot;1000&quot;</span>
+<span class="w">                    </span><span class="na">max=</span><span class="s">&quot;100000&quot;</span>
+<span class="w">                    </span><span class="na">showAdvancedTooltip=</span><span class="s">&quot;true&quot;</span>
+<span class="w">                    </span><span class="na">showHandleTooltip=</span><span class="s">&quot;true&quot;</span>
+<span class="w">                    </span><span class="na">inputsAsTooltips=</span><span class="s">&quot;true&quot;</span>
+<span class="w">                    </span><span class="na">enableTickmarks=</span><span class="s">&quot;true&quot;</span>
+<span class="w">                    </span><span class="na">step=</span><span class="s">&quot;1000&quot;</span>
+<span class="w">                    </span><span class="na">class=</span><span class="s">&quot;sapUiMediumMarginBottom&quot;</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{price}&quot;</span>
+<span class="w">                </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Currency&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;ComboBox</span><span class="w"> </span><span class="na">selectedKey=</span><span class="s">&quot;{currency}&quot;</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;items&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;core:Item</span>
+<span class="w">                            </span><span class="na">key=</span><span class="s">&quot;EUR&quot;</span>
+<span class="w">                            </span><span class="na">text=</span><span class="s">&quot;Euro&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;core:Item</span>
+<span class="w">                            </span><span class="na">key=</span><span class="s">&quot;USD&quot;</span>
+<span class="w">                            </span><span class="na">text=</span><span class="s">&quot;US Dollar&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;core:Item</span>
+<span class="w">                            </span><span class="na">key=</span><span class="s">&quot;TRY&quot;</span>
+<span class="w">                            </span><span class="na">text=</span><span class="s">&quot;Turkish Lira&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/items&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/ComboBox&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/form:content&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/form:SimpleForm&gt;</span>
+<span class="w">        </span><span class="nt">&lt;beginButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Complete&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCompleteProduct&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/beginButton&gt;</span>
+<span class="w">        </span><span class="nt">&lt;endButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCloseProductDialog&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/endButton&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dialog&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label><label for="__tabbed_1_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onOpenDialog</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onOpenDialog</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h2 id="load-content">Load Content</h2>
+<p>To load the content from a fragment file, the <strong>load(): Promise&lt;Control | Control[]&gt;</strong> method can be utilized.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In the event that the fragment contains more than one UI control, the <strong>load()</strong> method will return an array containing the UI controls. Conversely, for single content, the <strong>load()</strong> method will return the UI control itself.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Please be aware that the <strong>load()</strong> method is <strong>asynchronous</strong> and must be awaited.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> with the following content. We would now like to use the <a href="https://sapui5.hana.ondemand.com/sdk/#/api/sap.m.Text">sap.m.Text</a> in the controller.</p>
+</div>
+<div class="highlight"><span class="filename">Text.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;My Text&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">Text</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/m/Text&quot;</span><span class="p">;</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onLoadFragment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// load the content of the fragment</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">load</span><span class="p">()</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">unknown</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Text</span><span class="p">;</span>
+</span>
+<span class="w">    </span><span class="c1">// use the content</span>
+<span class="hll"><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onLoadFragment</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+
+<span class="w">          </span><span class="c1">// load the content of the fragment</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+</span>
+<span class="w">          </span><span class="c1">// use the content</span>
+<span class="hll"><span class="w">          </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">content</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h2 id="open-dialog-or-popover">Open Dialog or Popover</h2>
+<p>There are two distinct methods for opening a dialog or popover from a fragment file.</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Please be advised that both methods support only the following dialog and popover classes:</p>
+<ul>
+<li><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Dialog">sap.m.Dialog</a></li>
+<li><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Popover">sap.m.Popover</a></li>
+<li><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.MessagePopover">sap.m.MessagePopover</a></li>
+<li><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ColorPalettePopover">sap.m.ColorPalettePopover</a></li>
+<li><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ResponsivePopover">sap.m.ResponsivePopover</a></li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Both methods include an optional parameter named <code>viewDependent: boolean</code>. Should you wish to add the dialog or popover as a dependent to your view, please set this parameter to <strong>true</strong>.</p>
+</div>
+<h3 id="open-sync">Open Sync</h3>
+<p>In order to utilise the <strong>open()</strong> method, it is essential to first execute the <a href="#load-content">load()</a> method.</p>
+<p>To utilize the <strong>open()</strong> method, it is essential to first execute the <a href="#load-content">load()</a> method.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <strong>open()</strong> method returns the dialog or popover loaded from a fragment using the <a href="#load-content">load()</a> method.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>When opening a popover, it is necessary to set the control that the popover opens next to. Please refer to the <a href="#constructor">constructor</a> documentation for further information.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Dialog Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> with the following content. We would now like to open the <strong>dialog</strong> in the controller.</p>
+</div>
+<div class="highlight"><span class="filename">Dialog.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Dialog</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Create New Product&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;form:SimpleForm&gt;</span>
+<span class="w">            </span><span class="nt">&lt;form:content&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Product ID&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;MaskInput</span>
+<span class="w">                    </span><span class="na">mask=</span><span class="s">&quot;CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC&quot;</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{ID}&quot;</span>
+<span class="w">                    </span><span class="na">placeholderSymbol=</span><span class="s">&quot;_&quot;</span>
+<span class="w">                </span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;rules&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;MaskInputRule</span>
+<span class="w">                            </span><span class="na">maskFormatSymbol=</span><span class="s">&quot;C&quot;</span>
+<span class="w">                            </span><span class="na">regex=</span><span class="s">&quot;[a-f0-9]&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/rules&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/MaskInput&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Input</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{name}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;TextArea</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{description}&quot;</span>
+<span class="w">                    </span><span class="na">rows=</span><span class="s">&quot;5&quot;</span>
+<span class="w">                </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/form:content&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/form:SimpleForm&gt;</span>
+<span class="w">        </span><span class="nt">&lt;beginButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Complete&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCompleteProduct&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/beginButton&gt;</span>
+<span class="w">        </span><span class="nt">&lt;endButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCloseProductDialog&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/endButton&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dialog&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">TypeScript</label><label for="__tabbed_3_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">openDialog</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// load the content of the fragment</span>
+<span class="hll"><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+</span>
+<span class="w">    </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">    </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">openDialog</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+
+<span class="w">          </span><span class="c1">// load the content of the fragment</span>
+<span class="hll"><span class="w">          </span><span class="k">await</span><span class="w"> </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+</span>
+<span class="w">          </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">          </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Popover Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> and the following content. We would now like to open the <strong>popover</strong> in the controller.</p>
+</div>
+<div class="highlight"><span class="filename">Popover.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Popover&gt;</span>
+<span class="w">        </span><span class="nt">&lt;content&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Test&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Finish&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onFinish&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/content&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Popover&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">TypeScript</label><label for="__tabbed_4_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">Button</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/m/Button&quot;</span><span class="p">;</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">openPopover</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path and the open by control</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;myButton&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Button</span><span class="p">);</span>
+</span>
+<span class="w">    </span><span class="c1">// load the content of the fragment</span>
+<span class="hll"><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+</span>
+<span class="w">    </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">    </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">openPopover</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path and the open by control</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;myButton&quot;</span><span class="p">));</span>
+</span>
+<span class="w">          </span><span class="c1">// load the content of the fragment</span>
+<span class="hll"><span class="w">          </span><span class="k">await</span><span class="w"> </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+</span>
+<span class="w">          </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">          </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h3 id="open-async">Open Async</h3>
+<p>The <strong>openAsync()</strong> method first executes the <a href="#load-content">load()</a> method internally, and then opens the dialog or popover.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <strong>openAsync()</strong> method returns the dialog or popover loaded from a fragment.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>When opening a popover, it is necessary to set the control that the popover opens next to. Please refer to the <a href="#constructor">constructor</a> documentation for further information.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Please be aware that the <strong>openAsync()</strong> method is <strong>asynchronous</strong>. To retrieve the dialog or popover, please await the <strong>openAsync()</strong> method.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Dialog Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> and the following content. We would now like to open the <strong>dialog</strong> in the controller.</p>
+</div>
+<div class="highlight"><span class="filename">Dialog.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Dialog</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Create New Product&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;form:SimpleForm&gt;</span>
+<span class="w">            </span><span class="nt">&lt;form:content&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Product ID&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;MaskInput</span>
+<span class="w">                    </span><span class="na">mask=</span><span class="s">&quot;CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC&quot;</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{ID}&quot;</span>
+<span class="w">                    </span><span class="na">placeholderSymbol=</span><span class="s">&quot;_&quot;</span>
+<span class="w">                </span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;rules&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;MaskInputRule</span>
+<span class="w">                            </span><span class="na">maskFormatSymbol=</span><span class="s">&quot;C&quot;</span>
+<span class="w">                            </span><span class="na">regex=</span><span class="s">&quot;[a-f0-9]&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/rules&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/MaskInput&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Input</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{name}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;TextArea</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{description}&quot;</span>
+<span class="w">                    </span><span class="na">rows=</span><span class="s">&quot;5&quot;</span>
+<span class="w">                </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/form:content&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/form:SimpleForm&gt;</span>
+<span class="w">        </span><span class="nt">&lt;beginButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Complete&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCompleteProduct&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/beginButton&gt;</span>
+<span class="w">        </span><span class="nt">&lt;endButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCloseProductDialog&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/endButton&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dialog&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">TypeScript</label><label for="__tabbed_5_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">openDialog</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">    </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">openDialog</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+
+<span class="w">          </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">          </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Popover Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> and the following content. We would now like to open the <strong>popover</strong> in the controller.</p>
+</div>
+<div class="highlight"><span class="filename">Popover.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Popover&gt;</span>
+<span class="w">        </span><span class="nt">&lt;content&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Test&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Finish&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onFinish&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/content&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Popover&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">TypeScript</label><label for="__tabbed_6_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">Button</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/m/Button&quot;</span><span class="p">;</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">openPopover</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path and the open by control</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">()</span><span class="o">?</span><span class="p">.</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;myButton&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Button</span><span class="p">);</span>
+</span>
+<span class="w">    </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">    </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">openPopover</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path and the open by control</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;myButton&quot;</span><span class="p">));</span>
+</span>
+<span class="w">          </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">          </span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h2 id="close-dialog-or-popover">Close Dialog or Popover</h2>
+<p>To close the dialog or popover that was opened by any of the approaches listed below, you will need to use the <strong>close()</strong> or <strong>closeAndDestroy()</strong> method.</p>
+<p>1) <a href="#load-content">load()</a> and <a href="#open-sync">open()</a></p>
+<p>2) <a href="#open-async">openAsync()</a></p>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Please be advised that it is your responsibility to destroy the content after using the <strong>close()</strong> method. This can be achieved by using the <a href="#destroy-fragment-content">destroyFragmentContent()</a> method. Alternatively, if you use the <strong>closeAndDestroy()</strong> method, the content will be destroyed automatically.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> with the following content. We would now like to open the <strong>dialog</strong> in the controller. When the user presses the <strong>Close</strong> button, we will close the dialog and destroy it.</p>
+</div>
+<div class="highlight"><span class="filename">Dialog.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Dialog</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Create New Product&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;form:SimpleForm&gt;</span>
+<span class="w">            </span><span class="nt">&lt;form:content&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Product ID&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;MaskInput</span>
+<span class="w">                    </span><span class="na">mask=</span><span class="s">&quot;CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC&quot;</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{ID}&quot;</span>
+<span class="w">                    </span><span class="na">placeholderSymbol=</span><span class="s">&quot;_&quot;</span>
+<span class="w">                </span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;rules&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;MaskInputRule</span>
+<span class="w">                            </span><span class="na">maskFormatSymbol=</span><span class="s">&quot;C&quot;</span>
+<span class="w">                            </span><span class="na">regex=</span><span class="s">&quot;[a-f0-9]&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/rules&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/MaskInput&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Input</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{name}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;TextArea</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{description}&quot;</span>
+<span class="w">                    </span><span class="na">rows=</span><span class="s">&quot;5&quot;</span>
+<span class="w">                </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/form:content&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/form:SimpleForm&gt;</span>
+<span class="w">        </span><span class="nt">&lt;beginButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Complete&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCompleteProduct&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/beginButton&gt;</span>
+<span class="w">        </span><span class="nt">&lt;endButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCloseDialog&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/endButton&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dialog&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">TypeScript</label><label for="__tabbed_7_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">fragment</span><span class="o">:</span><span class="w"> </span><span class="kt">FragmentCL</span><span class="p">;</span><span class="w"> </span><span class="c1">// The class property</span>
+</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">openDialog</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path and set to the class property</span>
+<span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+</span>
+<span class="w">    </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="hll"><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onCloseDialog</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// close the dialog</span>
+</span><span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">destroyFragmentContent</span><span class="p">();</span><span class="w"> </span><span class="c1">// do not forget to destroy after closing</span>
+</span><span class="hll"><span class="w">  </span><span class="p">}</span>
+</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">openDialog</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path and set to the class property</span>
+<span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+</span>
+<span class="w">          </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">},</span>
+
+<span class="hll"><span class="w">        </span><span class="nx">onCloseDialog</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// close the dialog</span>
+</span><span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">destroyFragmentContent</span><span class="p">();</span><span class="w"> </span><span class="c1">// do not forget to destroy after closing</span>
+</span><span class="hll"><span class="w">        </span><span class="p">}</span>
+</span><span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h2 id="get-fragment-content">Get Fragment Content</h2>
+<p>To retrieve the content loaded from a fragment file using the <a href="#load-content">load()</a> or <a href="#open-async">openAsync()</a> method, the <strong>getFragmentContent()</strong> method can be utilized.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Returns</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.Control">Control</a> | <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.Control">Control[]</a></td>
+      <td>Returns the control or controls loaded from a fragment file using the <a href="#load-content">load()</a> or <a href="#open-async">openAsync()</a> method</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="destroy-fragment-content">Destroy Fragment Content</h2>
+<p>To destroy the content loaded from a fragment using the <a href="#load-content">load()</a> or <a href="#open-async">openAsync()</a> methods, the <strong>destroyFragmentContent()</strong> method can be utilized.</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Should you wish to destroy the content of the dialog when the user presses the <strong>ESC</strong> button on the keyboard, we advise you to use the <strong>setAutoDestroyOnESC(destroy: boolean)</strong> method and set the parameter of the method to <strong>true</strong>. Otherwise, you will be responsible for destroying the content when the user presses the <strong>ESC</strong> button. Please note that if the content is not destroyed in each ESC event, the dialog cannot be loaded again.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Let us assume that we have created a file with the extension <strong>.fragment.xml</strong> and the following content. We would now like to open the <strong>dialog</strong> in the controller. When the user presses the <strong>Close</strong> button, we will close the dialog and destroy it.</p>
+</div>
+<div class="highlight"><span class="filename">Dialog.fragment.xml</span><pre><span></span><code><span class="nt">&lt;core:FragmentDefinition</span>
+<span class="w">    </span><span class="na">xmlns:form=</span><span class="s">&quot;sap.ui.layout.form&quot;</span>
+<span class="w">    </span><span class="na">xmlns=</span><span class="s">&quot;sap.m&quot;</span>
+<span class="w">    </span><span class="na">xmlns:core=</span><span class="s">&quot;sap.ui.core&quot;</span>
+<span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Dialog</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Create New Product&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;form:SimpleForm&gt;</span>
+<span class="w">            </span><span class="nt">&lt;form:content&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Product ID&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;MaskInput</span>
+<span class="w">                    </span><span class="na">mask=</span><span class="s">&quot;CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC&quot;</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{ID}&quot;</span>
+<span class="w">                    </span><span class="na">placeholderSymbol=</span><span class="s">&quot;_&quot;</span>
+<span class="w">                </span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;rules&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;MaskInputRule</span>
+<span class="w">                            </span><span class="na">maskFormatSymbol=</span><span class="s">&quot;C&quot;</span>
+<span class="w">                            </span><span class="na">regex=</span><span class="s">&quot;[a-f0-9]&quot;</span>
+<span class="w">                        </span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/rules&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/MaskInput&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Input</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{name}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Description&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;TextArea</span>
+<span class="w">                    </span><span class="na">value=</span><span class="s">&quot;{description}&quot;</span>
+<span class="w">                    </span><span class="na">rows=</span><span class="s">&quot;5&quot;</span>
+<span class="w">                </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/form:content&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/form:SimpleForm&gt;</span>
+<span class="w">        </span><span class="nt">&lt;beginButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Complete&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCompleteProduct&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/beginButton&gt;</span>
+<span class="w">        </span><span class="nt">&lt;endButton&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span>
+<span class="w">                </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span>
+<span class="w">                </span><span class="na">press=</span><span class="s">&quot;onCloseDialog&quot;</span>
+<span class="w">            </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/endButton&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Dialog&gt;</span>
+<span class="nt">&lt;/core:FragmentDefinition&gt;</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">TypeScript</label><label for="__tabbed_8_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">fragment</span><span class="o">:</span><span class="w"> </span><span class="kt">FragmentCL</span><span class="p">;</span><span class="w"> </span><span class="c1">// The class property</span>
+</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">openDialog</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with the controller and fragment path and set to the class property</span>
+<span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+</span>
+<span class="w">    </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="hll"><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onCloseDialog</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// close the dialog</span>
+</span><span class="hll"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">destroyFragmentContent</span><span class="p">();</span><span class="w"> </span><span class="c1">// do not forget to destroy after closing</span>
+</span><span class="hll"><span class="w">  </span><span class="p">}</span>
+</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/ui/FragmentCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">openDialog</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the controller and fragment path and set to the class property</span>
+<span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FragmentCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;your.apps.namespace.fragments.FragmentFileName&quot;</span><span class="p">);</span>
+</span>
+<span class="w">          </span><span class="c1">// open the dialog</span>
+<span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">openAsync</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">},</span>
+
+<span class="hll"><span class="w">        </span><span class="nx">onCloseDialog</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// close the dialog</span>
+</span><span class="hll"><span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">fragment</span><span class="p">.</span><span class="nx">destroyFragmentContent</span><span class="p">();</span><span class="w"> </span><span class="c1">// do not forget to destroy after closing</span>
+</span><span class="hll"><span class="w">        </span><span class="p">}</span>
+</span><span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/hasanciftci26" target="_blank" rel="noopened">Hasan Ciftci</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/hasanciftci26" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/hasan-%C3%A7ift%C3%A7i-4b3646170" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
