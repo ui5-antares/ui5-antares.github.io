@@ -673,7 +673,9 @@ The **updateEntry()** method utilizes the [ODataMetaModel][META_MODEL_URL] to de
   </tbody>
 </table>
 
-> **updateEntry()** method uses the default configurations when creating the dialog. However, these configurations can be modified using the public setter methods.
+!!! info
+
+	The **updateEntry()** method uses the default configurations when creating the dialog. However, these configurations can be modified using the public setter methods.
 
 ### Default Values
 
