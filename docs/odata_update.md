@@ -6,7 +6,7 @@ The ODataUpdateCL class leverages the [sap.ui.model.odata.v2.ODataModel][ODATA_M
 
 ## Constructor
 
-In order to utilise the functionality of ODataCreateCL, it is necessary to initialise the object.
+In order to utilise the functionality of ODataUpdateCL, it is necessary to initialise the object.
 
 <table>
   <thead>
@@ -696,7 +696,7 @@ Once the [update()](#update-request) function has been completed, the **getRespo
     </tr>
     <tr>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;data?: <code>EntityT</code> | <code>undefined</code></td>
-      <td>The data that was created</td>
+      <td>The data that was updated</td>
     </tr>
   </tbody>
 </table>
