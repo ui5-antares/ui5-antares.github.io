@@ -4,31 +4,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [1.120.1013] - 2024-07-16
+## 1.120.1013 - 2024-07-16
 
 ### Added
 
 - It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
 
-## [1.124.999005] - 2024-07-16
+## 1.124.999005 - 2024-07-16
 
 ### Added
 
 - It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
 
-## [1.124.999004] - 2024-07-16
+## 1.124.999004 - 2024-07-16
 
 ### Added
 
 - It is now possible to set initial filter values for standalone ValueHelpCL usages.
 
-## [1.120.1012] - 2024-07-16
+## 1.120.1012 - 2024-07-16
 
 ### Added
 
 - It is now possible to set initial filter values for standalone ValueHelpCL usages.
 
-## [1.124.999003] - 2024-07-05
+## 1.124.999003 - 2024-07-05
 
 ### Added
 
@@ -47,38 +47,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - The view dependent dialog bug fix for dialog loading in Entry classes.
 - The missing parameters of the resetChanges in Entry class have been added. 
 
-## [1.120.1011] - 2024-07-04
+## 1.120.1011 - 2024-07-04
 
 ### Fixed
 
 - The missing parameters of the resetChanges in Entry class have been added. 
 
-## [1.120.1010] - 2024-07-03
+## 1.120.1010 - 2024-07-03
 
 ### Fixed
 
 - The view dependent dialog bug fix for dialog loading in Entry classes.
 
-## [1.120.1009] - 2024-06-25
+## 1.120.1009 - 2024-06-25
 
 ### Added
 
 - It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
 
-## [1.120.1008] - 2024-06-21
+## 1.120.1008 - 2024-06-21
 
 ### Fixed
 
 - The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
 
-## [1.120.1007] - 2024-06-20
+## 1.120.1007 - 2024-06-20
 
 ### Added
 
 - It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
 - It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
 
-## [1.120.1006] - 2024-06-14
+## 1.120.1006 - 2024-06-14
 
 ### Added
 
@@ -88,20 +88,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
 
-## [1.120.1005] - 2024-06-12
+## 1.120.1005 - 2024-06-12
 
 ### Added
 
 - **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
 
-## [1.120.1004] - 2024-06-11
+## 1.120.1004 - 2024-06-11
 
 ### Added
 
 - `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
 - **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
 
-## [1.124.1002] - 2024-06-11
+## 1.124.1002 - 2024-06-11
 
 ### Added
 
@@ -111,7 +111,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.124.999002] - 2024-06-11
+## 1.124.999002 - 2024-06-11
 
 ### Added
 
@@ -121,7 +121,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.123.2002] - 2024-06-11
+## 1.123.2002 - 2024-06-11
 
 ### Added
 
@@ -131,7 +131,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.123.1003] - 2024-06-11
+## 1.123.1003 - 2024-06-11
 
 ### Added
 
@@ -141,7 +141,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.120.15002] - 2024-06-11
+## 1.120.15002 - 2024-06-11
 
 ### Added
 
@@ -151,7 +151,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.120.14002] - 2024-06-11
+## 1.120.14002 - 2024-06-11
 
 ### Added
 
@@ -161,7 +161,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.120.13002] - 2024-06-11
+## 1.120.13002 - 2024-06-11
 
 ### Added
 
@@ -171,7 +171,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.120.12002] - 2024-06-11
+## 1.120.12002 - 2024-06-11
 
 ### Added
 
@@ -181,7 +181,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.120.11002] - 2024-06-11
+## 1.120.11002 - 2024-06-11
 
 ### Added
 
@@ -191,7 +191,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.120.1003] - 2024-06-11
+## 1.120.1003 - 2024-06-11
 
 ### Added
 
@@ -201,7 +201,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.108.32002] - 2024-06-10
+## 1.108.32002 - 2024-06-10
 
 ### Added
 
@@ -211,7 +211,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.108.31002] - 2024-06-10
+## 1.108.31002 - 2024-06-10
 
 ### Added
 
@@ -221,7 +221,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.108.30002] - 2024-06-10
+## 1.108.30002 - 2024-06-10
 
 ### Added
 
@@ -231,7 +231,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.108.23002] - 2024-06-10
+## 1.108.23002 - 2024-06-10
 
 ### Added
 
@@ -241,7 +241,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.96.33002] - 2024-06-10
+## 1.96.33002 - 2024-06-10
 
 ### Added
 
@@ -251,7 +251,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.96.32002] - 2024-06-10
+## 1.96.32002 - 2024-06-10
 
 ### Added
 
@@ -261,7 +261,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.96.31002] - 2024-06-10
+## 1.96.31002 - 2024-06-10
 
 ### Added
 
@@ -271,7 +271,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.96.30002] - 2024-06-10
+## 1.96.30002 - 2024-06-10
 
 ### Added
 
@@ -281,7 +281,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.96.25003] - 2024-06-10
+## 1.96.25003 - 2024-06-10
 
 ### Added
 
@@ -291,49 +291,49 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - ValidationLogicCL bug fix for falsy values such as false, 0, "" in the `value1` and `value2` properties. 
 
-## [1.124.1001] - 2024-06-09
+## 1.124.1001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.123.2001] - 2024-06-09
+## 1.123.2001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.120.15001] - 2024-06-09
+## 1.120.15001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.120.14001] - 2024-06-09
+## 1.120.14001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.120.13001] - 2024-06-09
+## 1.120.13001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.120.12001] - 2024-06-09
+## 1.120.12001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.120.11001] - 2024-06-09
+## 1.120.11001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.96.33001] - 2024-06-09
+## 1.96.33001 - 2024-06-09
 
 ### Added
 
@@ -347,7 +347,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.96.32001] - 2024-06-09
+## 1.96.32001 - 2024-06-09
 
 ### Added
 
@@ -361,7 +361,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.96.31001] - 2024-06-09
+## 1.96.31001 - 2024-06-09
 
 ### Added
 
@@ -375,7 +375,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.96.30001] - 2024-06-09
+## 1.96.30001 - 2024-06-09
 
 ### Added
 
@@ -389,7 +389,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.108.32001] - 2024-06-09
+## 1.108.32001 - 2024-06-09
 
 ### Added
 
@@ -399,7 +399,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.108.31001] - 2024-06-09
+## 1.108.31001 - 2024-06-09
 
 ### Added
 
@@ -409,23 +409,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.124.999001] - 2024-06-09
+## 1.124.999001 - 2024-06-09
 
 ### Added
 
 - Initial productive release.
 
-## [1.108.30001] - 2024-06-08
-
-### Added
-
-- Initial productive release.
-
-### Removed
-
-- sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
-
-## [1.108.23001] - 2024-06-08
+## 1.108.30001 - 2024-06-08
 
 ### Added
 
@@ -435,7 +425,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.96.25002] - 2024-06-07
+## 1.108.23001 - 2024-06-08
+
+### Added
+
+- Initial productive release.
+
+### Removed
+
+- sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
+
+## 1.96.25002 - 2024-06-07
 
 ### Added
 
@@ -447,7 +447,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - The auto-generated sap.m.Dialog now is draggable and resizable.
 
-## [1.120.1002] - 2024-06-07
+## 1.120.1002 - 2024-06-07
 
 ### Added
 
@@ -459,7 +459,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - The auto-generated sap.m.Dialog now is draggable and resizable.
 
-## [1.123.1002] - 2024-06-07
+## 1.123.1002 - 2024-06-07
 
 ### Added
 
@@ -471,13 +471,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - The auto-generated sap.m.Dialog now is draggable and resizable.
 
-## [1.120.1001] - 2024-05-30
+## 1.120.1001 - 2024-05-30
 
 ### Added
 
 - Initial productive release.
 
-## [1.96.25001] - 2024-05-30
+## 1.96.25001 - 2024-05-30
 
 ### Added
 
@@ -491,63 +491,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - sap.m.ColorPalettePopover is not supported by the FragmentCL class in this version.
 
-## [1.123.1001] - 2024-05-30
+## 1.123.1001 - 2024-05-30
 
 ### Added
 
 - Initial productive release.
-
-[1.120.1013]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1012...1.120.1013?diff=split
-[1.124.999005]: https://github.com/hasanciftci26/ui5-antares/compare/1.124.999004...1.124.999005?diff=split
-[1.124.999004]: https://github.com/hasanciftci26/ui5-antares/compare/1.124.999003...1.124.999004?diff=split
-[1.120.1012]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1011...1.120.1012?diff=split
-[1.124.999003]: https://github.com/hasanciftci26/ui5-antares/compare/1.124.999002...1.124.999003?diff=split
-[1.120.1011]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1010...1.120.1011?diff=split
-[1.120.1010]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1009...1.120.1010?diff=split
-[1.120.1009]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1008...1.120.1009?diff=split
-[1.120.1008]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1007...1.120.1008?diff=split
-[1.120.1007]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1006...1.120.1007?diff=split
-[1.120.1006]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1005...1.120.1006?diff=split
-[1.120.1005]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1004...1.120.1005?diff=split
-[1.120.1004]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1003...1.120.1004?diff=split
-[1.124.1002]: https://github.com/hasanciftci26/ui5-antares/compare/1.124.1001...1.124.1002?diff=split
-[1.124.999002]: https://github.com/hasanciftci26/ui5-antares/compare/1.124.999001...1.124.999002?diff=split
-[1.123.2002]: https://github.com/hasanciftci26/ui5-antares/compare/1.123.2001...1.123.2002?diff=split
-[1.123.1003]: https://github.com/hasanciftci26/ui5-antares/compare/1.123.1002...1.123.1003?diff=split
-[1.120.15002]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.15001...1.120.15002?diff=split
-[1.120.14002]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.14001...1.120.14002?diff=split
-[1.120.13002]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.13001...1.120.13002?diff=split
-[1.120.12002]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.12001...1.120.12002?diff=split
-[1.120.11002]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.11001...1.120.11002?diff=split
-[1.120.1003]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1002...1.120.1003?diff=split
-[1.108.32002]: https://github.com/hasanciftci26/ui5-antares/compare/1.108.32001...1.108.32002?diff=split
-[1.108.31002]: https://github.com/hasanciftci26/ui5-antares/compare/1.108.31001...1.108.31002?diff=split
-[1.108.30002]: https://github.com/hasanciftci26/ui5-antares/compare/1.108.30001...1.108.30002?diff=split
-[1.108.23002]: https://github.com/hasanciftci26/ui5-antares/compare/1.108.23001...1.108.23002?diff=split
-[1.96.33002]: https://github.com/hasanciftci26/ui5-antares/compare/1.96.33001...1.96.33002?diff=split
-[1.96.32002]: https://github.com/hasanciftci26/ui5-antares/compare/1.96.32001...1.96.32002?diff=split
-[1.96.31002]: https://github.com/hasanciftci26/ui5-antares/compare/1.96.31001...1.96.31002?diff=split
-[1.96.30002]: https://github.com/hasanciftci26/ui5-antares/compare/1.96.30001...1.96.30002?diff=split
-[1.96.25003]: https://github.com/hasanciftci26/ui5-antares/compare/1.96.25002...1.96.25003?diff=split
-[1.124.1001]: https://github.com/hasanciftci26/ui5-antares/tree/1.124.1001
-[1.123.2001]: https://github.com/hasanciftci26/ui5-antares/tree/1.123.2001
-[1.120.15001]: https://github.com/hasanciftci26/ui5-antares/tree/1.120.15001
-[1.120.14001]: https://github.com/hasanciftci26/ui5-antares/tree/1.120.14001
-[1.120.13001]: https://github.com/hasanciftci26/ui5-antares/tree/1.120.13001
-[1.120.12001]: https://github.com/hasanciftci26/ui5-antares/tree/1.120.12001
-[1.120.11001]: https://github.com/hasanciftci26/ui5-antares/tree/1.120.11001
-[1.96.33001]: https://github.com/hasanciftci26/ui5-antares/tree/1.96.33001
-[1.96.32001]: https://github.com/hasanciftci26/ui5-antares/tree/1.96.32001
-[1.96.31001]: https://github.com/hasanciftci26/ui5-antares/tree/1.96.31001
-[1.96.30001]: https://github.com/hasanciftci26/ui5-antares/tree/1.96.30001
-[1.108.32001]: https://github.com/hasanciftci26/ui5-antares/tree/1.108.32001
-[1.108.31001]: https://github.com/hasanciftci26/ui5-antares/tree/1.108.31001
-[1.124.999001]: https://github.com/hasanciftci26/ui5-antares/tree/1.124.999001
-[1.108.30001]: https://github.com/hasanciftci26/ui5-antares/tree/1.108.30001
-[1.108.23001]: https://github.com/hasanciftci26/ui5-antares/tree/1.108.23001
-[1.96.25002]: https://github.com/hasanciftci26/ui5-antares/compare/1.96.25001...1.96.25002?diff=split
-[1.120.1002]: https://github.com/hasanciftci26/ui5-antares/compare/1.120.1001...1.120.1002?diff=split
-[1.123.1002]: https://github.com/hasanciftci26/ui5-antares/compare/1.123.1001...1.123.1002?diff=split
-[1.120.1001]: https://github.com/hasanciftci26/ui5-antares/tree/1.120.1001
-[1.96.25001]: https://github.com/hasanciftci26/ui5-antares/tree/1.96.25001
-[1.123.1001]: https://github.com/hasanciftci26/ui5-antares/tree/1.123.1001
