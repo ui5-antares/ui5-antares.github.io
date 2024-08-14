@@ -1,0 +1,2481 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../entry_delete/">
+      
+      
+        <link rel="next" href="../value_help/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Entry Read - UI5 Antares</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#entry-read" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="UI5 Antares" class="md-header__button md-logo" aria-label="UI5 Antares" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UI5 Antares
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Entry Read
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hasanciftci26/ui5-antares" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ui5-antares
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  UI5 Antares
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../entry_create/" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Create
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../entry_update/" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Update
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../entry_delete/" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Delete
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Entry Read
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../value_help/" class="md-tabs__link">
+        
+  
+    
+  
+  Value Help
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fragment_class/" class="md-tabs__link">
+        
+  
+    
+  
+  Fragment Class
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../odata_create/" class="md-tabs__link">
+          
+  
+  Promisified OData V2 Classes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../change_log/" class="md-tabs__link">
+        
+  
+    
+  
+  Change Log
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="UI5 Antares" class="md-nav__button md-logo" aria-label="UI5 Antares" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    UI5 Antares
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hasanciftci26/ui5-antares" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ui5-antares
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI5 Antares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entry_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Create
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entry_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entry_delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Entry Delete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Entry Read
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Entry Read
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructor-with-a-table-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor with a Table ID
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructor with a Table ID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-table-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Table Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor-with-a-context-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor with a Context Binding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor-with-entity-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructor with Entity Keys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-row-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Select Row Message
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Entry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Read Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Values
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Features
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../value_help/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Value Help
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fragment_class/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fragment Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Promisified OData V2 Classes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Promisified OData V2 Classes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Create
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Update
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_delete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Delete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odata_read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OData Read
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="entry-read">Entry Read</h1>
+<p>The EntryReadCL class is responsible for managing the READ (GET) operation through the OData V2 model. This class eliminates the need for developers to concern themselves with fragments, user input validations, and value help creation when working on custom SAPUI5 applications or Fiori Elements extensions. The following section outlines the key features of the Entry Read class.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Dialog">sap.m.Dialog</a> generation with a <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartform.SmartForm">SmartForm</a>, <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.form.SimpleForm">SimpleForm</a>, or custom content</li>
+<li><a href="https://sapui5.hana.ondemand.com/#/api/sap.uxap.ObjectPageLayout">sap.uxap.ObjectPageLayout</a> generation with a <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartform.SmartForm">SmartForm</a>, <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.form.SimpleForm">SimpleForm</a>, or custom content</li>
+<li>Property sorting, excluding</li>
+<li>Label generation for the <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smartform.SmartForm">SmartForm</a>, <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.layout.form.SimpleForm">SimpleForm</a> elements</li>
+<li>Call a fragment and bind the context in case you do not want to use the auto-generated dialog</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Please be advised that the majority of features available in the <a href="../entry_create/">Entry Create</a> class are also accessible in the <a href="#entry-read">Entry Read</a> class. However, please note that the original documentation was created on the <a href="../entry_create/">Entry Create</a> page. To view a list of available features, please refer to the <a href="#available-features">Available Features</a> section.</p>
+</div>
+<h2 id="use-case">Use Case</h2>
+<p>Let's say you have an <code>EntitySet</code> named <strong>Products</strong> that is bound to a table, and the <strong>Products</strong> entity has many properties that don't fit in the table. The goal is to allow the end user to select a row from the table and display the details with more properties through the OData V2 Model on a dialog screen. The following steps outline the process.</p>
+<p>1) It is necessary to create a <strong>.fragment.xml</strong> file that contains a dialog with form content (Simple, Smart, etc.) and call it from the controller or generate the dialog directly on the controller.</p>
+<p>2) It is necessary to handle the selection of the table.</p>
+<p>3) It is necessary to handle the binding of the selected row to a dialog or a form.</p>
+<p>The <a href="#entry-read">EntryReadCL</a> class is responsible for executing all of the steps mentioned above.</p>
+<h2 id="constructor">Constructor</h2>
+<p>In order to utilise the functionality of EntryReadCL, it is necessary to initialise the object.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Default Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>controller</td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.core.mvc.Controller">sap.ui.core.mvc.Controller</a></td>
+      <td>Yes</td>
+      <td></td>
+      <td>The controller object (usually <code>this</code> object)</td>
+    </tr>
+    <tr>
+      <td>settings</td>
+      <td><code>object</code></td>
+      <td>Yes</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>&emsp;entityPath</td>
+      <td><code>string</code></td>
+      <td>Yes</td>
+      <td></td>
+      <td>The name of the <strong>EntitySet</strong>. It can start with a <strong>"/"</strong> (slash)</td>
+    </tr>
+    <tr>
+      <td>&emsp;initializer</td>
+      <td><code>string</code> | <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.model.Context">sap.ui.model.Context</a> | <code>EntityKeysT</code></td>
+      <td>Yes</td>
+      <td></td>
+      <td>This parameter identifies the table ID, context binding, or key values of the entity that will be displayed.</td>
+    </tr>
+    <tr>
+      <td>modelName?</td>
+      <td><code>string</code></td>
+      <td>No</td>
+      <td><code>undefined</code></td>
+      <td>The name of the OData V2 model which can be found on the manifest.json file. <strong>Leave this parameter undefined</strong> if the name of the OData model = "" (empty string)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There are three distinct methods for constructing an object from the <a href="#entry-read">Entry Read</a> class.</p>
+<h3 id="constructor-with-a-table-id">Constructor with a Table ID</h3>
+<p>The most straightforward method for utilizing the capabilities of the <a href="#entry-read">Entry Read</a> class is to construct an object with the ID of a table that you have on your XML view. This method offers several advantages.</p>
+<p>1) The table row selected by the end user is automatically detected by the <a href="#entry-read">Entry Read</a> class, and the context binding of the selected row will be bound to the auto-generated dialog.</p>
+<p>2) If no table row is selected by the end user, a default message is displayed in the <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.MessageBox">sap.m.MessageBox.error</a> to the end user.</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Please note that this method supports only the table types and selection modes listed below. In the event that the selection mode of the table whose ID is being used for object construction is not supported, an error will be thrown by the library.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The default message displayed when the end user has not selected a row from the table yet can be modified using the <a href="#select-row-message">setSelectRowMessage()</a> method.</p>
+</div>
+<h4 id="supported-table-types">Supported Table Types</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Table Type</th>
+      <th>Selection Mode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Table">sap.m.Table</a></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ListMode">SingleSelect</a> | <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ListMode">SingleSelectLeft</a> | <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ListMode">SingleSelectMaster</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.table.Table">sap.ui.table.Table</a></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.table.SelectionMode">Single</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.comp.smarttable.SmartTable">sap.ui.comp.smarttable.SmartTable</a></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.table.SelectionMode">Single</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.table.AnalyticalTable">sap.ui.table.AnalyticalTable</a></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.table.SelectionMode">Single</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.table.TreeTable">sap.ui.table.TreeTable</a></td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.table.SelectionMode">Single</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Let us consider an <code>EntitySet</code> named <strong>Products</strong>, which is bound to an <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Table">sap.m.Table</a> on the XML view. Our objective is to add an <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Button">sap.m.Button</a> to the header toolbar of the table. When the user selects a row from the table and presses the <strong>Display Product Details</strong> button, a dialog will open so the user can view the details of the selected line.</p>
+</div>
+<p><img alt="Read Constructor Sample" src="../images/read_entry/read_constructor_1.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip for TypeScript</p>
+<p>The <strong>EntryReadCL&lt;EntityT, EntityKeysT&gt;</strong> class is a generic class and can be initialized with 2 types.</p>
+<ul>
+<li>The <code>EntityT</code> type contains <strong>all</strong> properties of the <code>EntitySet</code> that is specified on the class constructor.</li>
+<li>The <code>EntityKeysT</code> type contains the <strong>key</strong> properties of the <code>EntitySet</code> that is specified on the class constructor.</li>
+</ul>
+<p>The <code>EntityKeysT</code> type is utilized as one of the types of the <code>initializer</code> parameter in the class <a href="#constructor">constructor</a>.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label><label for="__tabbed_1_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCategoryDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize without a type and with the table id</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tblCategories&quot;</span><span class="w"> </span><span class="c1">// table id       </span>
+</span><span class="hll"><span class="w">    </span><span class="p">});</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayProductDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with a type and the table id</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="o">&lt;</span><span class="nx">IProducts</span><span class="p">,</span><span class="w"> </span><span class="nx">IProductKeys</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tblProducts&quot;</span><span class="w"> </span><span class="c1">// table id       </span>
+</span><span class="hll"><span class="w">    </span><span class="p">});</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCustomerDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize with a model name and the table id</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Customers&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tblCustomers&quot;</span><span class="w"> </span><span class="c1">// table id      </span>
+</span><span class="hll"><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;myODataModelName&quot;</span><span class="p">);</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">IProducts</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">brand</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">currency</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">quantityInStock</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">categoryID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">supplierID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">IProductKeys</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayProductDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with the table id</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tblProducts&quot;</span><span class="w"> </span><span class="c1">// table id                </span>
+</span><span class="hll"><span class="w">          </span><span class="p">});</span><span class="w"> </span>
+</span><span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayCategoryDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with a model name</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tblCategories&quot;</span><span class="w"> </span><span class="c1">// table id                 </span>
+</span><span class="hll"><span class="w">          </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;myODataModelName&quot;</span><span class="p">);</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h3 id="constructor-with-a-context-binding">Constructor with a Context Binding</h3>
+<p>An alternative approach to constructing an object from the <a href="#entry-read">Entry Read</a> class is to utilise the <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.model.Context">context</a> of the entity that will be displayed by the end user.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Let us consider an <code>EntitySet</code> named <strong>Products</strong>, which is bound to an <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Table">sap.m.Table</a> on the XML view. Our objective is to add an <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.Button">sap.m.Button</a> to the header toolbar of the table. When the user selects a row from the table and presses the <strong>Display Product Details</strong> button, we will retrieve the context of the selected row and use it to construct an object from the <a href="#entry-read">Entry Read</a> class.</p>
+</div>
+<p><img alt="Read Constructor Sample" src="../images/read_entry/read_constructor_1.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip for TypeScript</p>
+<p>The <strong>EntryReadCL&lt;EntityT, EntityKeysT&gt;</strong> class is a generic class and can be initialized with 2 types.</p>
+<ul>
+<li>The <code>EntityT</code> type contains <strong>all</strong> properties of the <code>EntitySet</code> that is specified on the class constructor.</li>
+<li>The <code>EntityKeysT</code> type contains the <strong>key</strong> properties of the <code>EntitySet</code> that is specified on the class constructor.</li>
+</ul>
+<p>The <code>EntityKeysT</code> type is utilized as one of the types of the <code>initializer</code> parameter in the class <a href="#constructor">constructor</a>.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="k">import</span><span class="w"> </span><span class="nx">MessageBox</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/m/MessageBox&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Table</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/m/Table&quot;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCategoryDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Get the selected item and warn the end user if no row was selected</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblCategories&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Table</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+</span>
+<span class="hll"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+</span><span class="hll"><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+</span><span class="hll"><span class="w">    </span><span class="p">}</span>
+</span>
+<span class="w">    </span><span class="c1">// Get the selected context</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">();</span>
+</span>
+<span class="w">    </span><span class="c1">// Initialize without a type and use the binding context</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">selectedContext</span><span class="w"> </span><span class="c1">// binding context</span>
+</span><span class="hll"><span class="w">    </span><span class="p">});</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayProductDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Get the selected item and warn the end user if no row was selected</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblProducts&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Table</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+</span>
+<span class="hll"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+</span><span class="hll"><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+</span><span class="hll"><span class="w">    </span><span class="p">}</span>
+</span>
+<span class="w">    </span><span class="c1">// Get the selected context</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">();</span>
+</span>
+<span class="w">    </span><span class="c1">// Initialize with a type and use the binding context</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="o">&lt;</span><span class="nx">IProducts</span><span class="p">,</span><span class="w"> </span><span class="nx">IProductKeys</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">selectedContext</span><span class="w"> </span><span class="c1">// binding context</span>
+</span><span class="hll"><span class="w">    </span><span class="p">});</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCustomerDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Get the selected item and warn the end user if no row was selected</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblCustomers&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Table</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+</span>
+<span class="hll"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+</span><span class="hll"><span class="w">      </span><span class="k">return</span><span class="p">;</span>
+</span><span class="hll"><span class="w">    </span><span class="p">}</span>
+</span>
+<span class="w">    </span><span class="c1">// Get the selected context</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">();</span>
+</span>
+<span class="w">    </span><span class="c1">// Initialize with a model name and use the binding context</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Customers&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">selectedContext</span><span class="w"> </span><span class="c1">// binding context   </span>
+</span><span class="hll"><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;myODataModelName&quot;</span><span class="p">);</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">IProducts</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">brand</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">currency</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">quantityInStock</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">categoryID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">supplierID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">IProductKeys</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="w">    </span><span class="s2">&quot;sap/m/MessageBox&quot;</span>
+<span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">,</span><span class="w"> </span><span class="nx">MessageBox</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayProductDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Get the selected item and warn the end user if no row was selected</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblProducts&quot;</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+</span>
+<span class="hll"><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+</span><span class="hll"><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+</span><span class="hll"><span class="w">          </span><span class="p">}</span>
+</span>
+<span class="w">          </span><span class="c1">// Get the selected context</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">();</span>
+</span>
+<span class="w">          </span><span class="c1">// Initialize with the binding context</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="c1">// binding context     </span>
+</span><span class="hll"><span class="w">          </span><span class="p">});</span><span class="w"> </span>
+</span><span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayCategoryDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Get the selected item and warn the end user if no row was selected</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblCategories&quot;</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+</span>
+<span class="hll"><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+</span><span class="hll"><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+</span><span class="hll"><span class="w">          </span><span class="p">}</span>
+</span>
+<span class="w">          </span><span class="c1">// Get the selected context</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">();</span>
+</span>
+<span class="w">          </span><span class="c1">// Initialize with the binding context</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="c1">// binding context               </span>
+</span><span class="hll"><span class="w">          </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;myODataModelName&quot;</span><span class="p">);</span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h3 id="constructor-with-entity-keys">Constructor with Entity Keys</h3>
+<p>The final method for constructing an object from the <a href="#entry-read">Entry Read</a> class is to utilize the <strong>key</strong> values of the entity that will be displayed by the end user.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>For the purposes of this example, let us consider an <code>EntitySet</code> named <strong>Products</strong> with a single <strong>key</strong> property named <code>ID</code>, whose type is <code>Edm.Guid</code>. We would like to allow the end user to display a specific entity with the key value: <strong>ID = "b2f0013e-418f-42aa-9a24-3770fe17ce18"</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Please note that if the <code>EntitySet</code> is bound to a table, you can retrieve the values of the <strong>key</strong> properties of the selected row using the <strong>getBindingContext().getObject()</strong> method.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The EntryReadCL class creates a binding context with the values of the specified <strong>key</strong> properties using the <code>initializer</code> parameter in the class <a href="#constructor">constructor</a> and subsequently binds the created context to the dialog.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip for TypeScript</p>
+<p>The <strong>EntryReadCL&lt;EntityT, EntityKeysT&gt;</strong> class is a generic class and can be initialized with 2 types.</p>
+<ul>
+<li>The <code>EntityT</code> type contains <strong>all</strong> properties of the <code>EntitySet</code> that is specified on the class constructor.</li>
+<li>The <code>EntityKeysT</code> type contains the <strong>key</strong> properties of the <code>EntitySet</code> that is specified on the class constructor.</li>
+</ul>
+<p>The <code>EntityKeysT</code> type is utilized as one of the types of the <code>initializer</code> parameter in the class <a href="#constructor">constructor</a>.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">TypeScript</label><label for="__tabbed_3_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span>
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCategoryDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Prepare the key values of a specific entity</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">keyValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b2f0013e-418f-42aa-9a24-3770fe17ce18&quot;</span>
+</span><span class="hll"><span class="w">    </span><span class="p">};</span>
+</span>
+<span class="w">    </span><span class="c1">// Initialize without a type and use the key values as the initializer</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">keyValues</span><span class="w"> </span><span class="c1">// key values of the entity</span>
+</span><span class="hll"><span class="w">    </span><span class="p">});</span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayProductDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Prepare the key values of a specific entity</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">keyValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b2f0013e-418f-42aa-9a24-3770fe17ce18&quot;</span>
+</span><span class="hll"><span class="w">    </span><span class="p">};</span>
+</span>
+<span class="w">    </span><span class="c1">// Initialize with a type and use the key values as the initializer</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="o">&lt;</span><span class="nx">IProducts</span><span class="p">,</span><span class="w"> </span><span class="nx">IProductKeys</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">keyValues</span><span class="w"> </span><span class="c1">// key values of the entity</span>
+</span><span class="hll"><span class="w">    </span><span class="p">});</span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCustomerDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Prepare the key values of a specific entity</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">keyValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b2f0013e-418f-42aa-9a24-3770fe17ce18&quot;</span>
+</span><span class="hll"><span class="w">    </span><span class="p">};</span>
+</span>
+<span class="w">    </span><span class="c1">// Initialize with a model name and use the key values as the initializer</span>
+<span class="hll"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Customers&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">keyValues</span><span class="w"> </span><span class="c1">// key values of the entity</span>
+</span><span class="hll"><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;myODataModelName&quot;</span><span class="p">);</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">IProducts</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">brand</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">currency</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">quantityInStock</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">categoryID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">supplierID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">IProductKeys</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span>
+</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayProductDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Prepare the key values of a specific entity</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">keyValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b2f0013e-418f-42aa-9a24-3770fe17ce18&quot;</span>
+</span><span class="hll"><span class="w">          </span><span class="p">};</span>
+</span>
+<span class="w">          </span><span class="c1">// Initialize with the entity set name and use the key values as the initializer</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="nx">keyValues</span><span class="w"> </span><span class="c1">// key values of the entity</span>
+</span><span class="hll"><span class="w">          </span><span class="p">});</span><span class="w">  </span>
+</span><span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayCategoryDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Prepare the key values of a specific entity</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">keyValues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b2f0013e-418f-42aa-9a24-3770fe17ce18&quot;</span>
+</span><span class="hll"><span class="w">          </span><span class="p">};</span>
+</span>
+<span class="w">          </span><span class="c1">// Initialize with the entity set name and use the key values as the initializer</span>
+<span class="hll"><span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="nx">keyValues</span><span class="w"> </span><span class="c1">// key values of the entity        </span>
+</span><span class="hll"><span class="w">          </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;myODataModelName&quot;</span><span class="p">);</span><span class="w">          </span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<h2 id="select-row-message">Select Row Message</h2>
+<p>If the object from the <a href="#entry-read">Entry Read</a> class is constructed using the <a href="#constructor-with-a-table-id">Constructor with a Table ID</a> approach, a default error message is displayed in an <a href="https://sapui5.hana.ondemand.com/#/api/sap.m.MessageBox">sap.m.MessageBox.error</a> to the end user when the user has not yet selected a row from the table.</p>
+<p>To change the default message, the <strong>setSelectRowMessage()</strong> method can be utilized.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Setter (setSelectRowMessage)</label><label for="__tabbed_4_2">Getter (getSelectRowMessage)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message</td>
+      <td><code>string</code></td>
+      <td>Yes</td>
+      <td>The message that is displayed when the end user has not selected a row from the table</td>
+    </tr>
+  </tbody>
+</table></p>
+</div>
+<div class="tabbed-block">
+<p><table>
+  <thead>
+    <tr>
+      <th>Returns</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>string</code></td>
+      <td>Returns the value that was set using <strong>setSelectRowMessage()</strong> method. Default value is <strong>Please select a row from the table.</strong></td>
+    </tr>
+  </tbody>
+</table></p>
+</div>
+</div>
+</div>
+<h2 id="read-entry">Read Entry</h2>
+<p>The <strong>readEntry()</strong> method establishes a connection between the context, determined by the <code>initializer</code> parameter in the <a href="#constructor">class constructor</a>, and the dialog that is either automatically generated or loaded from the fragment placed in the application files. Once the context is linked, the generated or loaded dialog is opened.</p>
+<p>The <strong>readEntry()</strong> method utilizes the <a href="https://sapui5.hana.ondemand.com/#/api/sap.ui.model.odata.ODataMetaModel">ODataMetaModel</a> to determine the <code>EntityType</code> of the <code>EntitySet</code> designated through the <a href="#constructor">constructor</a>. It then generates the form with the properties in the same order as the OData metadata, in accordance with the <code>EntityType</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that the labels are generated assuming that the naming convention of the <code>EntityType</code> is <strong>camelCase</strong>. For further details, please see the <a href="../entry_create/#label-generation">Label Generation</a> section.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>It is not possible to modify any of the properties of an <code>EntitySet</code> on the auto-generated dialog. This behaviour cannot be altered.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please be advised that the <strong>readEntry()</strong> method must be called after any configurations have been made through the public methods of the <a href="#entry-read">Entry Read</a> class. Any configurations (form title, end button text, etc.) made after the <strong>readEntry()</strong> method will not be reflected. As a best practice, the <strong>readEntry()</strong> method should be called at the end of your code block.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The key properties with Edm.Guid type are not visible by default on the generated form. However, this behavior can be modified using the <a href="../entry_create/#properties-with-edmguid-type">setDisplayGuidProperties()</a> method.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>Please be advised that the random UUID generation for properties with the <code>Edm.Guid</code> type is not available in the <a href="#entry-read">Entry Read</a> class.</p>
+</div>
+<h3 id="method-parameters">Method Parameters</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Returns</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Promise&lt;void&gt;</code></td>
+      <td>Once the promise has been fulfilled, the bound entry can be retrieved using the <strong>getEntryContext()</strong> method with the object instantiated from the <a href="#constructor">EntryReadCL</a> class.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <strong>readEntry()</strong> method uses the default configurations when creating the dialog. However, these configurations can be modified using the public setter methods.</p>
+</div>
+<h3 id="default-values">Default Values</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Term</th>
+            <th>Default Value</th>
+            <th>Description</th>
+            <th>Setter</th>
+            <th>Getter</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Naming Strategy</td>
+            <td><a href="../entry_create/#namingstrategies-enum">NamingStrategies.CAMEL_CASE</a></td>
+            <td>The default naming strategy is <strong>CAMEL_CASE</strong></td>
+            <td><a href="../entry_create/#naming-strategy">setNamingStrategy()</a></td>
+            <td><a href="../entry_create/#naming-strategy">getNamingStrategy()</a></td>
+        </tr>
+        <tr>
+            <td>Resource Bundle Prefix</td>
+            <td><code>antares</code></td>
+            <td>The default resource bundle prefix is <strong>antares</strong></td>
+            <td><a href="../entry_create/#resource-bundle-prefix">setResourceBundlePrefix()</a></td>
+            <td><a href="../entry_create/#resource-bundle-prefix">getResourceBundlePrefix()</a></td>
+        </tr>
+        <tr>
+            <td>Use Metadata Labels</td>
+            <td><code>false</code></td>
+            <td>The labels are not derived from the metadata, but rather generated.</td>
+            <td><a href="../entry_create/#use-metadata-labels">setUseMetadataLabels()</a></td>
+            <td><a href="../entry_create/#use-metadata-labels">getUseMetadataLabels()</a></td>
+        </tr>
+        <tr>
+            <td>Form Type</td>
+            <td><a href="../entry_create/#formtypes-enum">FormTypes.SMART</a></td>
+            <td>The SmartForm with SmartFields is generated as the default option.</td>
+            <td><a href="../entry_create/#form-type">setFormType()</a></td>
+            <td><a href="../entry_create/#form-type">getFormType()</a></td>
+        </tr>
+        <tr>
+            <td>Form Title</td>
+            <td><code>Read + ${entityPath}</code></td>
+            <td>The <code>entityPath</code> parameter of the <a href="#constructor">constructor</a> is used</td>
+            <td><a href="../entry_create/#form-title">setFormTitle()</a></td>
+            <td><a href="../entry_create/#form-title">getFormTitle()</a></td>
+        </tr>
+        <tr>
+            <td>End Button Text</td>
+            <td><code>Close</code></td>
+            <td>The default end button text is <strong>Close</strong></td>
+            <td><a href="../entry_create/#end-button-text">setEndButtonText()</a></td>
+            <td><a href="../entry_create/#end-button-text">getEndButtonText()</a></td>
+        </tr>
+        <tr>
+            <td>End Button Type</td>
+            <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ButtonType">ButtonType.Negative</a></td>
+            <td>The default button type is <strong>Negative</strong></td>
+            <td><a href="../entry_create/#end-button-type">setEndButtonType()</a></td>
+            <td><a href="../entry_create/#end-button-type">getEndButtonType()</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>Example</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">TypeScript</label><label for="__tabbed_5_2">JavaScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="k">import</span><span class="w"> </span><span class="nx">Table</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/m/Table&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">MessageBox</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sap/m/MessageBox&quot;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @namespace your.apps.namespace</span>
+<span class="cm"> */</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">YourController</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onInit</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayProductDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize without a type and with a table id</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tblProducts&quot;</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// Call </span>
+<span class="hll"><span class="w">    </span><span class="nx">entry</span><span class="p">.</span><span class="nx">readEntry</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w"> </span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCategoryDetails</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblCategories&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Table</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Initialize with a type and a binding context</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="o">&lt;</span><span class="nx">ICategory</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">selectedContext</span>
+<span class="w">    </span><span class="p">});</span><span class="w"> </span>
+
+<span class="w">    </span><span class="c1">// Call</span>
+<span class="hll"><span class="w">    </span><span class="nx">entry</span><span class="p">.</span><span class="nx">readEntry</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">onDisplayCustomerDetails</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblCustomers&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Table</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">customerKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">selectedItem.getBindingContext</span><span class="p">().</span><span class="nx">getObject</span><span class="p">().</span><span class="nx">ID</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Initialize without a type and with the key values</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Customers&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="kt">customerKeys</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// Call</span>
+<span class="hll"><span class="w">    </span><span class="nx">entry</span><span class="p">.</span><span class="nx">readEntry</span><span class="p">();</span>
+</span><span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">ICategory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">name?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">sap</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">define</span><span class="p">([</span>
+<span class="w">    </span><span class="s2">&quot;sap/ui/core/mvc/Controller&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="s2">&quot;ui5/antares/entry/v2/EntryReadCL&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Import the class</span>
+</span><span class="w">    </span><span class="s2">&quot;sap/m/MessageBox&quot;</span>
+<span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * @param {typeof sap.ui.core.mvc.Controller} Controller</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">,</span><span class="w"> </span><span class="nx">MessageBox</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s2">&quot;your.apps.namespace.YourController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">onInit</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayProductDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Initialize with a table id</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Products&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tblProducts&quot;</span>
+<span class="w">          </span><span class="p">});</span><span class="w"> </span>
+
+<span class="w">          </span><span class="c1">// Call</span>
+<span class="hll"><span class="w">          </span><span class="nx">entry</span><span class="p">.</span><span class="nx">readEntry</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayCategoryDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblCategories&quot;</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">();</span>
+
+<span class="w">          </span><span class="c1">// Initialize with a binding context</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Categories&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="nx">selectedContext</span>
+<span class="w">          </span><span class="p">});</span><span class="w"> </span>
+
+<span class="w">          </span><span class="c1">// Call</span>
+<span class="hll"><span class="w">          </span><span class="nx">entry</span><span class="p">.</span><span class="nx">readEntry</span><span class="p">();</span>
+</span><span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="nx">onDisplayCustomerDetails</span><span class="o">:</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">selectedItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getView</span><span class="p">().</span><span class="nx">byId</span><span class="p">(</span><span class="s2">&quot;tblCustomers&quot;</span><span class="p">).</span><span class="nx">getSelectedItem</span><span class="p">();</span>
+
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">selectedItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">MessageBox</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Please select a row from the table&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">customerKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">ID</span><span class="o">:</span><span class="w"> </span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">getBindingContext</span><span class="p">().</span><span class="nx">getObject</span><span class="p">().</span><span class="nx">ID</span>
+<span class="w">          </span><span class="p">};</span>
+
+<span class="w">          </span><span class="c1">// Initialize with the key values</span>
+<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EntryReadCL</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">entityPath</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Customers&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">initializer</span><span class="o">:</span><span class="w"> </span><span class="nx">customerKeys</span>
+<span class="w">          </span><span class="p">});</span><span class="w"> </span>
+
+<span class="w">          </span><span class="c1">// Call</span>
+<span class="hll"><span class="w">          </span><span class="nx">entry</span><span class="p">.</span><span class="nx">readEntry</span><span class="p">();</span><span class="w">          </span>
+</span><span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">});</span>
+
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+<p>The generated form with default values will be similar in appearance to the following example. However, it should be noted that the exact appearance may vary depending on the configurations and the <code>EntityType</code> properties of the <code>EntitySet</code>.</p>
+<p><img alt="Read Entry" src="../images/read_entry/read_entry.png" /></p>
+<h2 id="available-features">Available Features</h2>
+<p>The <a href="#entry-read">EntryReadCL</a> class is derived from the same abstract class as the <a href="../entry_create/">EntryCreateCL</a> class and contains the same methods. However, some of these functions are not applicable to the <a href="#entry-read">EntryReadCL</a> class. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please note that the default values for the available functions may differ.</p>
+</div>
+<p>The features listed below are identical to those available in <a href="../entry_create/">EntryCreateCL</a>. Methods can be accessed through the object constructed from the <a href="#entry-read">EntryReadCL</a> class.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To access the documentation for a particular feature, please click on the name of the feature.</p>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Availability</th>
+      <th>Default Value</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="../create_entry/#manual-submit">Manual Submit</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td><a href="../create_entry/#disable-auto-dialog-close">Disable Auto Dialog Close</a></td>
+      <td align="center">&#x2717;</td>
+      <td>false</td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#label-generation">Label Generation</a></td>
+      <td align="center">&#x2714;</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#resource-bundle-prefix">Resource Bundle Prefix</a></td>
+      <td align="center">&#x2714;</td>
+      <td>antares</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#naming-strategy">Naming Strategy</a></td>
+      <td align="center">&#x2714;</td>
+      <td>CAMEL_CASE</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#form-type">Form Type</a></td>
+      <td align="center">&#x2714;</td>
+      <td>SMART</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#form-title">Form Title</a></td>
+      <td align="center">&#x2714;</td>
+      <td>Read <code>${entityPath}</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#form-grouping">Form Grouping</a></td>
+      <td align="center">&#x2714;</td>
+      <td>[]</td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td><a href="../create_entry/#custom-data">Custom Data</a></td>
+      <td align="center">&#x2714;</td>
+      <td>[]</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#text-in-edit-mode-source">Text In Edit Mode Source</a></td>
+      <td align="center">&#x2717;</td>
+      <td>[]</td>
+      <td></td>
+    </tr>       
+    <tr>
+      <td><a href="../create_entry/#begin-button-text">Begin Button Text</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#begin-button-type">Begin Button Type</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#end-button-text">End Button Text</a></td>
+      <td align="center">&#x2714;</td>
+      <td>Close</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#end-button-type">End Button Type</a></td>
+      <td align="center">&#x2714;</td>
+      <td><a href="https://sapui5.hana.ondemand.com/#/api/sap.m.ButtonType">ButtonType.Negative</a></td>
+      <td></td>
+    </tr>   
+    <tr>
+      <td><a href="../create_entry/#properties-with-edmguid-type">Properties with Edm.Guid Type</a></td>
+      <td align="center">&#x2714;</td>
+      <td></td>
+      <td>The random UUID generation is not available. You can only modify the visibilities of the properties with <code>Edm.Guid</code> type</td>
+    </tr>
+    <tr>
+      <td><a href="../create_entry/#form-property-order">Form Property Order</a></td>
+      <td align="center">&#x2714;</td>
+      <td>[]</td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#excluded-properties">Excluded Properties</a></td>
+      <td align="center">&#x2714;</td>
+      <td>[]</td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#mandatory-properties">Mandatory Properties</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#readonly-properties">Readonly Properties</a></td>
+      <td align="center">&#x2717;</td>
+      <td>[all properties]</td>
+      <td>By default, all the properties are readonly and cannot be changed</td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#attach-submit-completed">Attach Submit Completed</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#attach-submit-failed">Attach Submit Failed</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#response-class">Response Class</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../value-help">Value Help</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#validation-logic">Validation Logic</a></td>
+      <td align="center">&#x2717;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#object-page">Object Page</a></td>
+      <td align="center">&#x2714;</td>
+      <td></td>
+      <td></td>
+    </tr>      
+    <tr>
+      <td><a href="../create_entry/#custom-control">Custom Control</a></td>
+      <td align="center">&#x2714;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#custom-content">Custom Content</a></td>
+      <td align="center">&#x2714;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td><a href="../create_entry/#custom-fragment">Custom Fragment</a></td>
+      <td align="center">&#x2714;</td>
+      <td></td>
+      <td></td>
+    </tr>    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/hasanciftci26" target="_blank" rel="noopened">Hasan Ciftci</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/hasanciftci26" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/hasan-%C3%A7ift%C3%A7i-4b3646170" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
