@@ -170,97 +170,97 @@ The table below outlines the currently supported and planned SAPUI5 versions.
   </thead>
   <tbody>
     <tr>
-      <td>1.124.1002</td>
+      <td>1.124.1003</td>
       <td>1.124.1</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.124.999005</td>
+      <td>1.124.999006</td>
       <td>1.124.0</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.123.2002</td>
+      <td>1.123.2003</td>
       <td>1.123.2</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.123.1003</td>
+      <td>1.123.1004</td>
       <td>1.123.1</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.120.15002</td>
+      <td>1.120.15003</td>
       <td>1.120.15</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.120.14002</td>
+      <td>1.120.14003</td>
       <td>1.120.14</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.120.13002</td>
+      <td>1.120.13003</td>
       <td>1.120.13</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.120.12002</td>
+      <td>1.120.12003</td>
       <td>1.120.12</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.120.11002</td>
+      <td>1.120.11003</td>
       <td>1.120.11</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.120.1013</td>
+      <td>1.120.1014</td>
       <td>1.120.1</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.108.32002</td>
+      <td>1.108.32003</td>
       <td>1.108.32</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.108.31002</td>
+      <td>1.108.31003</td>
       <td>1.108.31</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.108.30002</td>
+      <td>1.108.30003</td>
       <td>1.108.30</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.108.23002</td>
+      <td>1.108.23003</td>
       <td>1.108.23</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.96.33002</td>
+      <td>1.96.33003</td>
       <td>1.96.33</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.96.32002</td>
+      <td>1.96.32003</td>
       <td>1.96.32</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.96.31002</td>
+      <td>1.96.31003</td>
       <td>1.96.31</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.96.30002</td>
+      <td>1.96.30003</td>
       <td>1.96.30</td>
       <td>Available</td>
     </tr>
     <tr>
-      <td>1.96.25003</td>
+      <td>1.96.25004</td>
       <td>1.96.25</td>
       <td>Available</td>
     </tr>
