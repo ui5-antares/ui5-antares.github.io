@@ -4,6 +4,477 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.96.31003] - 2024-08-14
+
+[1.96.31003]: https://github.com/hasanciftci26/ui5-antares/pull/45
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.96.30003] - 2024-08-14
+
+[1.96.30003]: https://github.com/hasanciftci26/ui5-antares/pull/46
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.96.25004] - 2024-08-14
+
+[1.96.25004]: https://github.com/hasanciftci26/ui5-antares/pull/47
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.123.1004] - 2024-08-11
+
+[1.123.1004]: https://github.com/hasanciftci26/ui5-antares/pull/34
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.120.15003] - 2024-08-11
+
+[1.120.15003]: https://github.com/hasanciftci26/ui5-antares/pull/36
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.120.14003] - 2024-08-11
+
+[1.120.14003]: https://github.com/hasanciftci26/ui5-antares/pull/37
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.120.13003] - 2024-08-11
+
+[1.120.13003]: https://github.com/hasanciftci26/ui5-antares/pull/38
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.108.32003] - 2024-08-11
+
+[1.108.32003]: https://github.com/hasanciftci26/ui5-antares/pull/39
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.108.31003] - 2024-08-11
+
+[1.108.31003]: https://github.com/hasanciftci26/ui5-antares/pull/40
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.108.30003] - 2024-08-11
+
+[1.108.30003]: https://github.com/hasanciftci26/ui5-antares/pull/41
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.108.23003] - 2024-08-11
+
+[1.108.23003]: https://github.com/hasanciftci26/ui5-antares/pull/42
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.96.33003] - 2024-08-11
+
+[1.96.33003]: https://github.com/hasanciftci26/ui5-antares/pull/43
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.96.32003] - 2024-08-11
+
+[1.96.32003]: https://github.com/hasanciftci26/ui5-antares/pull/44
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.124.1003] - 2024-08-10
+
+[1.124.1003]: https://github.com/hasanciftci26/ui5-antares/pull/28
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.123.2003] - 2024-08-10
+
+[1.123.2003]: https://github.com/hasanciftci26/ui5-antares/pull/31
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.120.12003] - 2024-08-09
+
+[1.120.12003]: https://github.com/hasanciftci26/ui5-antares/commit/ea1ff2bb74e7ac0e6464c1bd59195491e6598f57
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## [1.120.11003] - 2024-08-09
+
+[1.120.11003]: https://github.com/hasanciftci26/ui5-antares/commit/0fe56eac538b4a8ed5f06176a471facfb77dd8dd
+
+### Added
+
+- It is now possible to attach a function that will be executed when the ValueHelpDialog is opened by ValueHelpCL class.
+- It is now possible to set initial filter values for standalone ValueHelpCL usages.
+- `viewDependent` parameter has been added to the **openAsync()** and **open()** methods of the **FragmentCL** class. If this parameter is set to true, dialog or popover is added as a dependent to the source view using the **addDependent()** method of the MVC View class.
+- **closeAndDestroy()** method has been added to the **FragmentCL** class. With this method, it is no longer necessary to call **close()** and then **destroyFragmentContent()**. This method does both.
+- **setAutoDestroyOnESC()** method has been added to the **FragmentCL** class. If this method is executed with **true** parameter, the dialog content will be destroyed automatically by the class.
+- It is now possible to disable auto close after the submit is done in EntryCreateCL and EntryUpdateCL classes. To close and destroy the dialog manually, the **closeAndDestroyEntryDialog()** method can be utilized.
+- It is now possible to set custom data for the auto-generated form elements using the **setFieldCustomData()** method of the Entry classes.
+- It is now possible to set the `setTextInEditModeSource` property of the smartfield using the **setTextInEditModeSource()** method of the Entry classes.
+- It is now possible to attach a function that will be executed after the user selects a row from the ValueHelpDialog when the ValueHelpCL class is used as a standalone component.
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+### Fixed
+
+- The issue with label generation from the metadata for custom controls in the SMART form has been resolved. 
+- The missing dialog types ViewSettingsDialog, TableSelectDialog, SelectDialog, BusyDialog, ValueHelpDialog have been added to the FragmentCL class.
+- The view dependent dialog bug fix for dialog loading in Entry classes.
+- The missing parameters of the resetChanges in Entry class have been added.
+
+## 1.120.1014 - 2024-08-09
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
+## 1.124.999006 - 2024-08-09
+
+### Changed
+
+- The CHANGELOG.md file and the documentation in the README.md file have been moved to the [UI5 Antares](https://ui5-antares.github.io/) website.
+
 ## 1.120.1013 - 2024-07-16
 
 ### Added

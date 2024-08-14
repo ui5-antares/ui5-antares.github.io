@@ -392,6 +392,14 @@ To ensure that UI5 Antares is included as a dependency in your application, plea
 
 ![UI5 Tree](./images/installation/ui5_tree.png)
 
+In order to include dependencies in your application's deployment, you will need to add the `includeDependencies: true` flag to the configuration of the **ui5-task-zipper** task in your application's YAML file.
+
+!!! danger "Attention"
+
+    Please note that without this configuration, the UI5 Antares library files will not be included in the **.zip** file that will be deployed into the target system.
+
+![UI5 Task Zipper Configuration](./images/installation/include_dependencies.png)
+
 ### TypeScript
 
 If you are developing your SAPUI5/Fiori Elements application with TypeScript, you must add **"./node_modules/ui5-antares"** to the `compilerOptions.typeRoots` array in your application's **tsconfig.json** file. This configuration is required to use type declarations of the UI5 Antares.
